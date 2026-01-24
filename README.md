@@ -6,6 +6,16 @@ This repository explores an **alternative, computational approach** to the quant
 
 Rather than attempting to analytically unify Einstein’s General Relativity and Schrödinger’s Quantum Mechanics, this work investigates whether **a single learned geometric representation** can coherently host **both GR-inspired and QM-inspired constraints**, even in the presence of singularities, horizons, and topology change.
 
+**(This  uses Modak Walawalkar framework -- used across multiple problems.
+
+A separate, independently validated open-source repository - Modak Walawalkar geometric framework but with different data(Kerr spacetime), constraints, and training runs. The quantum gravity work presented here reuses the representation machinery, not the trained models or datasets. This separation allows us to test whether the same geometric infrastructure generalizes across regimes rather than overfitting a single physics domain.
+
+
+https://github.com/RahulModak74/mw-framework)**
+
+
+
+
 The core idea is **computational constructivism**:
 > Instead of solving for a closed-form theory, we *construct* a representation space algorithmically and test whether physically motivated constraints can coexist within it.
 
