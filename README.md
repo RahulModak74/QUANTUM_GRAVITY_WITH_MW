@@ -1,5 +1,5 @@
 # QUANTUM_GRAVITY_WITH_MW
-First ever proof of quantum gravity and visualization 
+First ever proof of quantum gravity and visualization using ALTERNATE approach (designing algorithm instead of solving theory)!
 
 Run scripts in this sequence
 
