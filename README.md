@@ -7,9 +7,7 @@ This repository explores an **alternative, computational approach** to the quant
 Rather than attempting to analytically unify Einstein’s General Relativity and Schrödinger’s Quantum Mechanics, this work investigates whether **a single learned geometric representation** can coherently host **both GR-inspired and QM-inspired constraints**, even in the presence of singularities, horizons, and topology change.
 
 **(This  uses Modak Walawalkar framework -- Think Manifolds Not PDEs..
-Modak Walawalkar geometric framework repository can be found at below link. The quantum gravity work presented here reuses the representation machinery, not the trained models or datasets. 
-
-
+Modak Walawalkar geometric framework repository can be found at below link. 
 https://github.com/RahulModak74/mw-framework)**
 
 
