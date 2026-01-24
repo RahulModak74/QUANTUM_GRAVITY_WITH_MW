@@ -8,7 +8,7 @@ Rather than attempting to analytically unify Einstein’s General Relativity and
 
 **(This  uses Modak Walawalkar framework -- used across multiple problems.
 
-A separate, independently validated open-source repository - Modak Walawalkar geometric framework but with different data(Kerr spacetime), constraints, and training runs. The quantum gravity work presented here reuses the representation machinery, not the trained models or datasets. This separation allows us to test whether the same geometric infrastructure generalizes across regimes rather than overfitting a single physics domain.
+Modak Walawalkar geometric framework repository can be found at below link. The quantum gravity work presented here reuses the representation machinery, not the trained models or datasets. 
 
 
 https://github.com/RahulModak74/mw-framework)**
