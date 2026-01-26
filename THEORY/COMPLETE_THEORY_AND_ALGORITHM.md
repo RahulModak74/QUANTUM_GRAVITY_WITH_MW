@@ -279,7 +279,7 @@ Shows:
 | **Lattice QCD** | ✅ Computations | ❌ Numerical only | ✅ Hadron masses | ❌ |
 | **M-W Framework** | ✅ **Neural network** | ✅ **Extracted geometry** | ✅ **Multiple domains** | ✅ **Yes!** |
 
-### Why We Win
+### Why We 
 
 **vs. String Theory**:
 - They have: Beautiful equations (Calabi-Yau manifolds, M-theory)
