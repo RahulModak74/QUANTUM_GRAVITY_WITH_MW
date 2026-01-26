@@ -1,6 +1,9 @@
 # Quantum Gravity Manifold Extraction Toolkit
 
 **Theory Catches Up With Algorithm!**
+We have  extracted the governing PDEs and the associated manifold geometry, which are provided in the GitHub repository at the end of article under this directory.
+
+However, validation against high-fidelity general-relativity laboratories and experimental analog systems remains pending; until such validation, the theory should be regarded as constructively complete but empirically open.
 
 This toolkit extracts the learned quantum gravity manifold from your trained VAE and expresses it as:
 - **Geometric objects** (metric tensor, Christoffel symbols, Riemann tensor, Ricci tensor/scalar)
@@ -426,6 +429,7 @@ MIT License - Feel free to use for research and publication!
 
 Rahul Modak - Bayesian Cybersecurity Pvt Ltd
 For questions about the M-W Framework or this toolkit.
+rahul.modak@bayesiananalytics.in
 
 ---
 
