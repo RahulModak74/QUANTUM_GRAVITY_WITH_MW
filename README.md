@@ -312,7 +312,7 @@ Main repository: https://github.com/RahulModak74/mw-framework
 - Test extreme parameter ranges
 - Challenge our assumptions
 
-### Open Questions
+### Experimentations
 
 1. **Scaling:** Does Einstein residual improve with 300K samples? 1M samples?
 2. **Architecture:** Are 20 latent dimensions optimal? Try 10D or 50D?
@@ -376,28 +376,6 @@ For commercial applications (battery analytics, cybersecurity, etc.), please con
 
 ---
 
-## 🔮 Roadmap
-
-### Current Focus (Q1 2026)
-- [x] V4 physics-consistent data generation
-- [x] Einstein equation fixes (achieved 3.3% residual)
-- [x] Open-source release with reproducibility
-- [ ] Analog gravity experiment proposals (BEC, sonic black holes)
-- [ ] Scaling studies (100K, 300K, 1M samples)
-
-### Near-term (Q2-Q3 2026)
-- [ ] Dynamic spacetime extension (time-dependent metrics)
-- [ ] Comparison with numerical relativity codes
-- [ ] Alternative prior distributions (heavy-tailed variants)
-- [ ] Computational optimization (multi-GPU training)
-- [ ] Academic paper submission (after peer validation)
-
-### Long-term (2026-2027)
-- [ ] Experimental predictions for analog gravity
-- [ ] Connection to holographic principle
-- [ ] Quantum chemistry applications (molecular dynamics)
-- [ ] Climate modeling (turbulent systems)
-- [ ] Peer-reviewed publication
 
 ---
 
@@ -429,10 +407,6 @@ This is an active research project demonstrating computational constructivism fo
 - ⚠️ Experimental validation (analog gravity pending)
 - ⚠️ Theoretical understanding of WHY it works
 
-**What's in progress:**
-- 🔄 Scaling studies (larger datasets)
-- 🔄 Alternative architectures
-- 🔄 Dynamic spacetime extensions
 
 **We welcome scrutiny, criticism, and independent replication.**
 
@@ -448,4 +422,3 @@ Science advances through validation, not proclamation.
 
 *"Sometimes the biggest breakthroughs come from asking: 'We solved this problem over here with geometry... could the same approach work over there?'"*
 
-*— Computational Constructivism Manifesto, 2026*
