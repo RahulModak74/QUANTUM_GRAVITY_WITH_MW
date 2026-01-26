@@ -1,10 +1,6 @@
 # Quantum Gravity Manifold Extraction Toolkit
 
 **Theory Catches Up With Algorithm!**
-**
-We have extracted the governing PDEs and the associated manifold geometry, which are provided in the GitHub repository under this directory.
-
-However, validation against high-fidelity general-relativity laboratories and experimental analog systems remains pending; until such validation, the theory should be regarded as constructively complete but empirically open.**
 
 This toolkit extracts the learned quantum gravity manifold from your trained VAE and expresses it as:
 - **Geometric objects** (metric tensor, Christoffel symbols, Riemann tensor, Ricci tensor/scalar)
@@ -29,28 +25,42 @@ Once trained, the manifold EXISTS as a geometric object. We extract it using:
 
 ## Files
 
-### Core Extractors
-- `qg_manifold_extractor.py` - Extracts geometry (metric, curvature tensors)
-- `qg_pde_extractor.py` - Extracts PDEs (Laplace-Beltrami, geodesic, wave equations)
-- `qg_theory_pipeline.py` - Complete pipeline with PDF report generation
+### Working Fast Scripts (Use These!) ⚡
+- **`qg_extract_fast.py`** - Extract metric + curvature (30 sec, ~100 samples) ⭐
+- **`analyze_manifold.py`** - Analyze geometry from .npz file (no VAE needed) ⭐
+- **`plot_manifold.py`** - Visualize geometry (6 publication plots) ⭐
+- **`qg_extract_pdes_fast.py`** - Extract PDEs from .npz file ⭐
+
+### Legacy Scripts (Slower, for Reference)
+- `qg_manifold_extractor.py` - Full geometry extraction (slower, with symbolic)
+- `qg_pde_extractor.py` - Full PDE extraction (slower)
+- `qg_theory_pipeline.py` - Complete pipeline with PDF report (requires all deps)
 
 ### Inputs
 - `qg_vae.pth` - Your trained VAE model (from `qg_toy_vae_trainer_v4.py`)
-- `qg_toy_data_v2.npy` - Training data (not needed for extraction)
 
 ### Outputs
-- `qg_manifold.pkl` - Complete geometric data (metric, Christoffel, Riemann, Ricci)
-- `qg_manifold.json` - Metadata and dimensions
-- `qg_manifold_metric.tex` - LaTeX expressions for metric components
-- `qg_pdes.pkl` - Numerical PDE residuals
-- `qg_pdes.txt` - Human-readable PDE summary
-- `qg_theory_outputs/quantum_gravity_theory.pdf` - Publication-ready report
+- `qg_geometry_fast.npz` - Metric tensor + approximate Ricci scalar
+- `manifold_analysis.txt` - Complete statistics and physics quantities
+- `my_plots/*.png` - 6 visualization plots
+- `qg_pdes_analysis.txt` - PDE residuals and Einstein tensor
 
 ## Installation
 
 ```bash
 pip install -r requirements_manifold.txt
 ```
+
+### Minimal Installation (No Symbolic/Visualization)
+
+If you only want geometry extraction without symbolic math or plots:
+
+```bash
+# Only need PyTorch and NumPy
+pip install torch numpy pyro-ppl
+```
+
+Then use `qg_extract_minimal.py` instead of the full pipeline.
 
 Requirements:
 - `torch>=2.0.0` - PyTorch for autodiff
@@ -63,35 +73,56 @@ Requirements:
 
 ## Usage
 
-### Quick Start (Complete Pipeline)
+### FAST EXTRACTION (3 Working Scripts) ⚡
 
+**Step 1: Extract Geometry**
 ```bash
-# Train VAE first (if not already done)
-python qg_toy_vae_trainer_v4.py
-
-# Extract everything and generate report
-python qg_theory_pipeline.py
+# Extract metric tensor + approximate curvature (very fast!)
+python3 qg_extract_fast.py --vae qg_vae.pth --samples 100
+# Creates: qg_geometry_fast.npz (~30 seconds)
 ```
 
-This will:
-1. Extract manifold geometry at 100 sample points
-2. Fit symbolic expressions for metric components
-3. Compute PDE residuals
-4. Generate PDF report with visualizations
+**Step 2: Analyze Manifold**
+```bash
+# Get comprehensive statistics and physics quantities
+python3 analyze_manifold.py qg_geometry_fast.npz > manifold_analysis.txt
+# Creates: manifold_analysis.txt with all metrics
+```
 
-### Step-by-Step Usage
+**Step 3: Visualize**
+```bash
+# Generate publication-ready plots
+python3 plot_manifold.py qg_geometry_fast.npz my_plots
+# Creates: 6 PNG files in my_plots/ directory
+```
 
-If you want more control, run each step individually:
+**Step 4: Extract PDEs**
+```bash
+# Compute PDE residuals and Einstein tensor
+python3 qg_extract_pdes_fast.py qg_geometry_fast.npz
+# Creates: qg_pdes_analysis.txt
+```
+
+### Complete Pipeline (4 Commands)
 
 ```bash
-# Step 1: Extract geometry
-python qg_manifold_extractor.py
+# 1. Train VAE (if not already done)
+python3 qg_toy_vae_trainer_v4.py
 
-# Step 2: Extract PDEs
-python qg_pde_extractor.py
+# 2. Extract geometry
+python3 qg_extract_fast.py
 
-# Step 3: Generate report (use qg_theory_pipeline.py functions)
+# 3. Analyze
+python3 analyze_manifold.py qg_geometry_fast.npz > manifold_analysis.txt
+
+# 4. Visualize
+python3 plot_manifold.py qg_geometry_fast.npz
+
+# 5. Extract PDEs
+python3 qg_extract_pdes_fast.py qg_geometry_fast.npz
 ```
+
+**Total time: ~2 minutes** (after VAE training)
 
 ### Python API
 
@@ -311,6 +342,22 @@ def sectional_curvature(R, g, X, Y):
     return numerator / (denominator + 1e-8)
 ```
 
+### Export to Other Software
+
+**Mathematica:**
+```python
+# SymPy expressions can be converted to Mathematica syntax
+from sympy import mathematica_code
+for key, expr in symbolic_metric.items():
+    print(f"{key} = {mathematica_code(expr)}")
+```
+
+**SageMath:**
+```python
+# Save metric as Python dict, load in SageMath
+import sage.all as sage
+# Define manifold in SageMath with your metric
+```
 
 ## Troubleshooting
 
