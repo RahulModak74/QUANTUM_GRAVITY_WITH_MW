@@ -2,7 +2,7 @@
 
 **Theory Catches Up With Algorithm!**
 **
-We have extracted the governing PDEs and the associated manifold geometry, which are provided in the GitHub repository under the THEORY/ directory.
+We have extracted the governing PDEs and the associated manifold geometry, which are provided in the GitHub repository under this directory.
 
 However, validation against high-fidelity general-relativity laboratories and experimental analog systems remains pending; until such validation, the theory should be regarded as constructively complete but empirically open.**
 
