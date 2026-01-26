@@ -281,8 +281,7 @@ Main repository: https://github.com/RahulModak74/mw-framework
 - Cybersecurity threat detection (enterprise validation)
 - Gravitational wave inference (LIGO comparison)
 
-### LinkedIn Deep-Dive Articles
-- https://www.linkedin.com/pulse/quantum-gravity-modak-walawalkar-framework-solving-final-rahul-modak-ysmyf
+
 
 ---
 
@@ -337,6 +336,8 @@ If you use this work in your research:
 ```
 
 ---
+LinkedIn Deep-Dive Articles
+https://www.linkedin.com/pulse/quantum-gravity-modak-walawalkar-framework-solving-final-rahul-modak-ysmyf
 
 ## 📬 Contact
 
