@@ -109,7 +109,7 @@ python3 qg_extract_pdes_fast.py qg_geometry_fast.npz
 ### Complete Pipeline (4 Commands)
 
 ```bash
-# 1. Train VAE (if not already done)
+# 1. Train VAE (if not already done--this is done and trained model is present in THEORY directory)
 python3 qg_toy_vae_trainer_v4.py
 
 # 2. Extract geometry
