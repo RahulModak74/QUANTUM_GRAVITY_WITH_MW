@@ -1,0 +1,7 @@
+ANALYSIS
+python3 analyze_manifold.py qg_geometry_fast.npz > manifold_analysis.txt
+PLOTTING
+python3 plot_manifold.py qg_geometry_fast.npz my_plots
+PDEs
+python3 qg_extract_pdes_fast.py qg_geometry_fast.npz
+
