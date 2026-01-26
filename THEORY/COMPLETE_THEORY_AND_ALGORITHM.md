@@ -12,7 +12,7 @@ We present the Modak-Walawalkar (M-W) Framework, the first approach to quantum g
 
 We demonstrate this on quantum gravity, where our learned 20-dimensional Riemannian manifold exhibits Ricci scalar **R = (2.88 ± 1.80) × 10^7** and satisfies Einstein field equations with **||G_ij|| = 8.66 × 10^7**. The manifold geometry is not implicit in the network weights—it is **explicitly extractable** as metric tensors, curvature tensors, and partial differential equations.
 
-**This is case closed**: We have both algorithmic accuracy (95%+ on battery State of Health prediction) and theoretical completeness (verified Einstein equations). Neural networks don't just learn data—they learn physics. **The algorithm IS the theory.**
+**In this case**: We have both algorithmic accuracy (95%+ on battery State of Health prediction) and theoretical completeness (verified Einstein equations). Neural networks don't just learn data—they learn physics. **The algorithm IS the theory.**
 
 ---
 
@@ -404,7 +404,7 @@ Common criticism: "We don't understand what neural networks learn"
 
 ---
 
-## 9. Case Closed: Theory = Algorithm
+## 9.  Theory = Algorithm
 
 ### 9.1 For Theorists
 
@@ -419,7 +419,6 @@ Common criticism: "We don't understand what neural networks learn"
 - ✅ Einstein equations G_ij verified
 - ✅ PDEs residuals quantified
 
-**Case closed**: You can't argue it's "not theory" when we have explicit equations.
 
 ### 9.2 For Algorithmists
 
