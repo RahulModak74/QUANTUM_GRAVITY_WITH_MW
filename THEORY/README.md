@@ -435,4 +435,4 @@ rahul.modak@bayesiananalytics.in
 
 **THEORY = ALGORITHM** 🏆
 
-The manifold learned by the neural network IS the quantum gravity theory. We've just extracted it and made it mathematically explicit!
+The manifold learned by the neural network IS the quantum gravity theory pending validations from GR labs. We've just extracted it and made it mathematically explicit!
