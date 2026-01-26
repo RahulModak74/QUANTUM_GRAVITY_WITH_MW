@@ -343,12 +343,12 @@ If you use this work in your research:
 **Rahul Modak**  
 Founder & CEO, Bayesian Cybersecurity Pvt Ltd  
 📧 rahul.modak@bayesiananalytics.in  
-🔗 [LinkedIn](https://www.linkedin.com/in/rahulmodak74/)  
+
 
 **Dr. Rahul Walawalkar**  
 Co-Founder, Bayesian Cybersecurity Pvt Ltd  
 Senior Partner, Caret Capital  
-🔗 [LinkedIn](https://www.linkedin.com/in/rahulwalawalkar/)
+
 
 ---
 
