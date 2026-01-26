@@ -282,9 +282,7 @@ Main repository: https://github.com/RahulModak74/mw-framework
 - Gravitational wave inference (LIGO comparison)
 
 ### LinkedIn Deep-Dive Articles
-- [Quantum Gravity: Computational Constructivism](https://www.linkedin.com/in/rahulmodak74/recent-activity/all/)
-- [From Cybersecurity to Gravitational Waves](https://www.linkedin.com/in/rahulmodak74/recent-activity/all/)
-- [Think Manifolds, Not PDEs](https://www.linkedin.com/in/rahulmodak74/recent-activity/all/)
+- https://www.linkedin.com/pulse/quantum-gravity-modak-walawalkar-framework-solving-final-rahul-modak-ysmyf
 
 ---
 
