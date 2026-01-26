@@ -408,9 +408,9 @@ Common criticism: "We don't understand what neural networks learn"
 
 ### 9.1 For Theorists
 
-**Your objection**: "It's just a neural network, not real physics"
+** objection**: "It's just a neural network, not real physics"
 
-**Our response**: 
+** response**: 
 > We extracted the explicit metric tensor g_ij, computed Ricci scalar R = 2.88×10^7, verified Einstein equations ||G_ij|| = 8.66×10^7. The manifold geometry is mathematically rigorous. Here are the PDEs it satisfies. This IS physics, just learned rather than postulated.
 
 **Evidence**:
@@ -423,9 +423,9 @@ Common criticism: "We don't understand what neural networks learn"
 
 ### 9.2 For Algorithmists
 
-**Your objection**: "It works but we don't understand why"
+** objection**: "It works but we don't understand why"
 
-**Our response**:
+** response**:
 > We understand exactly why—the decoder defines a Riemannian manifold g_ij = ∂φ/∂z^i · ∂φ/∂z^j. The manifold geometry encodes the physics. We can visualize it, compute geodesics, measure curvature. The 'black box' is now transparent.
 
 **Evidence**:
@@ -438,9 +438,9 @@ Common criticism: "We don't understand what neural networks learn"
 
 ### 9.3 For Skeptics
 
-**Your objection**: "How do we know it's quantum gravity and not just overfitting?"
+** objection**: "How do we know it's quantum gravity and not just overfitting?"
 
-**Our response**:
+** response**:
 > The manifold satisfies Einstein field equations (G_ij computed), has positive curvature consistent with quantum foam (R > 0 everywhere), handles singularities via StudentT priors (heavy tails), and the geometry emerges from physics priors not data. This IS quantum spacetime structure.
 
 **Evidence**:
