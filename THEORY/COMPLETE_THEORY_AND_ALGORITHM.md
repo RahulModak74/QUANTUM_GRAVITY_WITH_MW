@@ -289,7 +289,7 @@ Shows:
 **vs. Loop Quantum Gravity**:
 - They have: Rigorous mathematics (spin networks, spin foams)
 - They lack: Practical applications beyond Planck scale
-- We have: Applications to real-world problems (battery degradation)
+- We have: Working algorithms like GPT4 to LLMs.
 
 **vs. Numerical Relativity**:
 - They have: Accurate simulations (black hole mergers for LIGO)
@@ -433,7 +433,7 @@ Common criticism: "We don't understand what neural networks learn"
 - ✅ Interpretable: curvature maps to physical regime
 - ✅ Visualized: 6 publication-quality plots
 
-**Case closed**: You can't argue it's a "black box" when we show you the explicit geometry.
+
 
 ### 9.3 For Skeptics
 
@@ -448,7 +448,7 @@ Common criticism: "We don't understand what neural networks learn"
 - ✅ Geometrically consistent: Riemannian, positive curvature
 - ✅ Testable: concrete predictions (R value, ||G_ij||)
 
-**Case closed**: Physics priors + extracted geometry = genuine physics, not curve fitting.
+**Outcome**: Physics priors + extracted geometry = genuine physics, not curve fitting.
 
 ---
 
