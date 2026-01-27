@@ -2,7 +2,7 @@ THis is the theory we have derived from simulator we built.
 
 Quantum Mechanics is Geometry
 
-# Our main proof: Classical Quantum Mechanics says hiesenberg uncertainty has  plank constant  h.
+# Our main claim: Classical Quantum Mechanics says Heisenberg uncertainty ℏ/2 is constant
 
 # We say it changes with gravity.. Pl refer section 10.2 in MW_FIeld_Equations.pdf
 
