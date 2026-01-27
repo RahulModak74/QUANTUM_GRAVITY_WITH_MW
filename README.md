@@ -6,7 +6,7 @@
 
 This repository demonstrates an alternative, computational approach to the quantum gravity problem using the **Modak-Walawalkar (MW) framework**.
 
-# (PLEASE READ OUR THEORY PAPER: Quantum_Mechanics_As_Geometry.pdf in the THEORY folder of this repo. Pending verification so we are still calling it Algorithmic)--- Einstein said.. Gravity is Geometry.. We are saying.. Quantum Mechanics is Geometry..
+## (PLEASE READ OUR THEORY PAPER: MW_Theory_Quantum_Mechanics_As_Geometry.pdf in the THEORY folder of this repo. Pending verification so we are still calling it Algorithmic)--- Einstein said.. Gravity is Geometry.. We are saying.. Quantum Mechanics is Geometry..
 
 Rather than attempting to analytically derive a unified theory, we **construct a geometric representation** where Einstein's General Relativity and Schrödinger's Quantum Mechanics can coexist—even at singularities, horizons, and topology changes.
 
