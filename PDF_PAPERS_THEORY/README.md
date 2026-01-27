@@ -4,7 +4,7 @@ Quantum Mechanics is Geometry
 
 Our main proof: Classical Quantum Mechanics says hiesenberg uncertainty h/2 is constant.
 
-We say it changes with gravity..
+We say it changes with gravity.. Pl refer section 10.2 in MW_FIeld_Equations.pdf
 
 Our model even extracts the change..
 
