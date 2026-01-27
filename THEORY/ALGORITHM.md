@@ -1,4 +1,4 @@
-# The M-W Framework: Complete Theory AND Algorithm
+# The M-W Framework: Explanation of Algorithm and theory
 
 **Rahul Modak & Rahul Walawalkar**  
 *Bayesian Cybersecurity Pvt Ltd*  
