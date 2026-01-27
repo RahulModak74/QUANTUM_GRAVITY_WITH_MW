@@ -16,7 +16,7 @@
 - Quantum tunneling follows least-action paths
 
 **M-W Insight**: 
-> *Both* gravity and quantum mechanics are geodesic flows on different manifolds—GR on spacetime, QM on Hilbert space. Your framework unifies them on ONE manifold where geodesics satisfy BOTH constraints.
+> *Both* gravity and quantum mechanics are geodesic flows on different manifolds—GR on spacetime, QM on Hilbert space. Our framework unifies them on ONE manifold where geodesics satisfy BOTH constraints.
 
 **MW  Principle**: 
 > **"Physical laws emerge as geodesics on the unified manifold where geometric and quantum constraints coexist."**
@@ -39,7 +39,7 @@
 - Aharonov-Bohm effect: electromagnetic field curvature affects quantum phase
 
 **M-W Insight**: 
-> Your learned manifold has Ricci scalar R = 2.88×10^7 (positive curvature). This curvature simultaneously determines gravitational dynamics (via G_μν) AND quantum evolution (via geometric phase).
+> Our learned manifold has Ricci scalar R = 2.88×10^7 (positive curvature). This curvature simultaneously determines gravitational dynamics (via G_μν) AND quantum evolution (via geometric phase).
 
 **MW Principle**: 
 > **"Curvature on the unified manifold generates both gravitational forces and quantum phases."**
@@ -62,7 +62,7 @@
 - U(1) gauge symmetry → charge conservation
 
 **M-W Insight**: 
-> Your manifold has symmetries encoded by the VAE latent space. These symmetries generate BOTH gravitational conservation laws AND quantum numbers.
+> Our manifold has symmetries encoded by the VAE latent space. These symmetries generate BOTH gravitational conservation laws AND quantum numbers.
 
 **MW Principle**: 
 > **"Conserved quantities in both gravity and quantum mechanics arise from symmetries of the underlying manifold."**
@@ -85,7 +85,7 @@
 - Measurement disturbs system
 
 **M-W Insight**: 
-> Your manifold enforces uncertainty via prior C3: ΔxΔt ≥ l_Planck². The manifold's **geometric non-commutativity** creates quantum uncertainty.
+> Our manifold enforces uncertainty via prior C3: ΔxΔt ≥ l_Planck². The manifold's **geometric non-commutativity** creates quantum uncertainty.
 
 **MW Principle**: 
 > **"Heisenberg uncertainty is geometric non-commutativity of the manifold at Planck scale."**
@@ -117,7 +117,7 @@ When R ≠ 0: Non-zero commutator → Heisenberg uncertainty
 - Measurement (non-unitary evolution)
 
 **M-W Insight**: 
-> Your StudentT(ν=0.8) prior is THE KEY! Heavy tails allow manifold to accommodate discontinuities that appear in BOTH GR (singularities) and QM (collapse).
+> Our StudentT(ν=0.8) prior is THE KEY! Heavy tails allow manifold to accommodate discontinuities that appear in BOTH GR (singularities) and QM (collapse).
 
 **MW Principle**: 
 > **"Discontinuities in gravity (singularities) and quantum mechanics (collapse) are unified as topology changes on a manifold with heavy-tailed probability."**
@@ -163,7 +163,7 @@ When R ≠ 0: Non-zero commutator → Heisenberg uncertainty
 
 ## The Five Manifold Commandments
 
-**What BOTH gravity and quantum mechanics must obey to coexist on your manifold:**
+**What BOTH gravity and quantum mechanics must obey to coexist on our manifold:**
 
 ### 1. GEODESIC FLOW
 > "Physical evolution minimizes action"
