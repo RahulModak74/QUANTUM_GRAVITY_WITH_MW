@@ -1,6 +1,6 @@
 # QUANTUM_GRAVITY_WITH_MW
 
-## Quantum Gravity — The "GPT Moment" for Fundamental Physics 🚀
+## A  theory for Quantum Gravity with working bayesian simulation 
 
 **Computational constructivism demonstrates GR+QM coexistence with 3.3% Einstein residual**
 
