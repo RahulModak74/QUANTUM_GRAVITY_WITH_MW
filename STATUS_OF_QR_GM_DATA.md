@@ -5,8 +5,8 @@ Status:
 - **However, the *approach* itself – using priors to shape a manifold and then extracting geometry – is still valid.** The circularity only invalidates the *discovery claim*, not the methodology.
 
 - **To break the circle and truly test the framework**, we  need **data that was *not* created using the theory you want to discover**. For example:
-  - Take **real astronomical simulated  data** (Mercury’s orbit, binary pulsar timing) that existed *before* Einstein.
-  - Encode only **pre‑Einstein priors** (Newtonian gravity, Hamiltonian conservation, Maxwell EM, etc.).
+  - Take **real astronomical simulated  data** (Mercury’s orbit, binary pulsar timing) that existed *before* Einstein. or simulate it
+  - Encode only **pre‑Einstein priors** (Newtonian gravity, Hamiltonian conservation, Maxwell EM, etc.). or any priors u want to expriment with**
   - Train the VAE on that data.
   - Extract the effective field equations from the learned manifold.
   - ** the manifold implies a residual that matches GR corrections** (e.g., perihelion precession, light bending), so **non‑circular evidence** that the framework can “discover” beyond its priors.
