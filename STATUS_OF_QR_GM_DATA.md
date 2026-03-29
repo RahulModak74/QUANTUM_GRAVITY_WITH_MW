@@ -1,5 +1,5 @@
 Status:
-
+# FRAMEWORK IS FAST HYPTHESIS TESTER (compared to PDEs)
 - **If we use data that was generated from Einstein’s equations** (synthetic GR data) and then claim the VAE “discovers” Einstein, that is **circular** –  put Einstein in,  get Einstein out. That does **not** prove the framework can discover new physics.
 
 - **However, the *approach* itself – using priors to shape a manifold and then extracting geometry – is still valid.** The circularity only invalidates the *discovery claim*, not the methodology.
