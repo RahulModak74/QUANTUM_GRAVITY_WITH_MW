@@ -3,6 +3,8 @@
 
 **A fast, physics‑informed Bayesian VAE for surrogate modeling of known PDEs – including a synthetic demonstration that a manifold can be constructed to respect both General Relativity and Quantum Mechanics.**
 
+# “The claims of ‘emergence’ and ‘unification’ are speculative interpretations of a synthetic demonstration. The only concrete, falsifiable prediction is the curvature‑dependent uncertainty relation. The framework’s primary contribution is fast surrogate modeling for known PDEs.”
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15304813.svg)](https://doi.org/10.5281/zenodo.15304813)
 
 > **Core engineering claim:** The Modak‑Walawalkar (MW) framework provides a physics‑informed Bayesian VAE that learns a fast, accurate surrogate for any system described by a Lagrangian. Once trained on existing solutions (from analytic models or legacy numerical solvers), it can generate new predictions – such as gravitational waveforms or battery degradation trajectories – **up to a million times faster** than traditional PDE solvers. This enables real‑time simulation, massive parameter sweeps, and Monte Carlo uncertainty quantification that were previously impossible.
