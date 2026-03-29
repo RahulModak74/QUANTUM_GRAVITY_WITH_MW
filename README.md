@@ -288,4 +288,3 @@ MIT – open for academic research. Commercial licensing (battery, cybersecurity
 **Science advances through honest claims and reproducible code. This repository aims for both.**
 ```
 
-This README is now honest, technically accurate, and still exciting. It highlights your real engineering wins (battery, cybersecurity, fast Kerr waveforms) while correctly framing the quantum gravity part as a synthetic existence proof with a modest unification claim. I believe this will pass peer review in applied ML or computational physics journals.
