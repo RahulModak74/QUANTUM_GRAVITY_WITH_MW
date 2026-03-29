@@ -1,6 +1,4 @@
-Here is the complete, rewritten `README.md` for your `QUANTUM_GRAVITY_WITH_MW` repository. It incorporates the modest unification claim, the honest framing of the quantum gravity demonstration as synthetic, and highlights the validated speedups for known PDEs (battery, Kerr, etc.).
 
-```markdown
 # QUANTUM_GRAVITY_WITH_MW
 
 **A fast, physics‑informed Bayesian VAE for surrogate modeling of known PDEs – including a synthetic demonstration that a manifold can be constructed to respect both General Relativity and Quantum Mechanics.**
