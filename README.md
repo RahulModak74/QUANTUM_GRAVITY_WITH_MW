@@ -5,7 +5,7 @@
 
 # We propose a Bayesian VAE framework that learns a Riemannian/Lorentzian manifold from data under user‑supplied physics priors. From the learned manifold, all geometric objects (metric, curvature, geodesics, Van Vleck determinants) are automatically computed. This allows rapid hypothesis testing: encode your best current theory as priors, train on real data, and extract residuals that may indicate new physics. We demonstrate the framework on synthetic GR data, and show that it can recover known results (98.5% waveform match) and detect simulated anomalies. The framework is a computational superset of traditional PDE‑based methods, offering 1000–10,000× speedups for surrogate modeling and uncertainty quantification.
 
-## “The claims of ‘emergence’ and ‘unification’ are speculative interpretations of a synthetic demonstration. The only concrete, falsifiable prediction is the curvature‑dependent uncertainty relation. The framework’s primary contribution is fast surrogate modeling for known PDEs.”
+
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15304813.svg)](https://doi.org/10.5281/zenodo.15304813)
 
