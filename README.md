@@ -241,6 +241,12 @@ All via PyTorch autodiff.
 
 ---
 
+markdown[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15304813.svg)](https://doi.org/10.5281/zenodo.15304813)
+
+## Citation
+Modak, R. and Walawalkar, R. (2026). A Student-t(ν=0.8) Prior...
+Zenodo. https://doi.org/10.5281/zenodo.15304813
+
 ## 🧪 Validation & Reproducibility
 
 ### Deterministic Results
