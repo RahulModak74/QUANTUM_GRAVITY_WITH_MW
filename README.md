@@ -33,7 +33,7 @@ Metric signature error:                0.13%
 Spacetime uncertainty satisfied:      85% ± 3%
 ```
 
-> **Note:** The 3.3% residual is the VAE’s fitting error on synthetic data that exactly satisfies Einstein’s equations. It is **not** a prediction of Planck‑scale quantum corrections – but it shows the VAE can approximate the target data well.
+> **Note:** The 3.3% residual is a mix of  the VAE’s fitting error on synthetic data that exactly satisfies Einstein’s equations.  but it shows the VAE can approximate the target data well.
 
 **300× improvement from V1** (reduced Einstein error from 980% to 3.3%) – achieved by fixing the data generator to be physically consistent, not by changing the physics.
 
