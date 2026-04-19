@@ -7,6 +7,8 @@
 
 ---
 
+MW_Framework vision is very ambitious.. Pl read MW_Framework_Quantum_Vision.pdf .. We propose Classical hardware based Quantum computing as end goal of MW..
+
 PL READ THIS ARTICLE BEFORE PROCEEDING TO THIS IMPLEMENTATION OF MW:https://www.linkedin.com/posts/rahul-modak-0859b4_ugcPost-7444251311841345536-7LFx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAlwmUBbRb5mHw3I_jb0v95oZS4bvP-99Y
 
 ## What This Repository Contains
