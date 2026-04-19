@@ -16,7 +16,7 @@ Vision (explicit)
 
 The long-term goal of the MW Framework is:
 
-##To enable quantum-scale computation on classical hardware
+## To enable quantum-scale computation on classical hardware
 via inference on physics-constrained manifolds.
 
 ⚠️ This is an active research direction, not a completed result.
