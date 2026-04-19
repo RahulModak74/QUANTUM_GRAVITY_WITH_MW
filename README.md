@@ -26,7 +26,9 @@ MW_Framework_Quantum_Vision.pdf
 
 For additional conceptual context (optional):
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15304813.svg)](https://doi.org/10.5281/zenodo.15304813)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15304813.svg)]
+
+https://zenodo.org/records/19304813
 
 ---
 
