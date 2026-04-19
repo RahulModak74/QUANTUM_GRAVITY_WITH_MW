@@ -1,14 +1,30 @@
 # QUANTUM_GRAVITY_WITH_MW
 
-### End to end vision for doing Quantum computing on classical hardware-MW_Framework_Quantum_Vision.pdf
-## A Constructed Geometric Unification of General Relativity and Quantum Mechanics
-### Plus: A 340-Year Alternative to Newton's Lagrangian→PDE→Solve Pipeline
+## A working implementation and research program for the Modak–Walawalkar (MW) Framework — a physics-informed Bayesian system that reformulates simulation as search on constrained manifolds instead of solving differential equations.
+
+## What this repository contains
+⚙️ Working implementations across physics and cyber-physical systems
+🧪 Empirical results demonstrating real-time inference and large speedups
+🧠 Theoretical documents on geometric unification of GR and QM
+🚀 A forward-looking vision: quantum-scale simulation on classical hardware
+Vision (explicit)
+
+The long-term goal of the MW Framework is:
+
+To enable quantum-scale computation on classical hardware
+via inference on physics-constrained manifolds.
+
+⚠️ This is an active research direction, not a completed result.
+
+Key document
+MW_Framework_Quantum_Vision.pdf
+
+For additional conceptual context (optional):
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15304813.svg)](https://doi.org/10.5281/zenodo.15304813)
 
 ---
 
-MW_Framework vision is very ambitious.. Pl read MW_Framework_Quantum_Vision.pdf .. We propose Classical hardware based Quantum computing as end goal of MW..
 
 PL READ THIS ARTICLE BEFORE PROCEEDING TO THIS IMPLEMENTATION OF MW:https://www.linkedin.com/posts/rahul-modak-0859b4_ugcPost-7444251311841345536-7LFx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAlwmUBbRb5mHw3I_jb0v95oZS4bvP-99Y
 
