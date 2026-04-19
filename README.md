@@ -3,15 +3,20 @@
 ## A working implementation and research program for the Modak–Walawalkar (MW) Framework — a physics-informed Bayesian system that reformulates simulation as search on constrained manifolds instead of solving differential equations.
 
 ## What this repository contains
+
 ⚙️ Working implementations across physics and cyber-physical systems
+
 🧪 Empirical results demonstrating real-time inference and large speedups
+
 🧠 Theoretical documents on geometric unification of GR and QM
+
 🚀 A forward-looking vision: quantum-scale simulation on classical hardware
 Vision (explicit)
 
+
 The long-term goal of the MW Framework is:
 
-To enable quantum-scale computation on classical hardware
+##To enable quantum-scale computation on classical hardware
 via inference on physics-constrained manifolds.
 
 ⚠️ This is an active research direction, not a completed result.
