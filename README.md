@@ -1,5 +1,6 @@
 # QUANTUM_GRAVITY_WITH_MW
 
+### End to end vision for doing Quantum computing on classical hardware-MW_Framework_Quantum_Vision.pdf
 ## A Constructed Geometric Unification of General Relativity and Quantum Mechanics
 ### Plus: A 340-Year Alternative to Newton's Lagrangian→PDE→Solve Pipeline
 
