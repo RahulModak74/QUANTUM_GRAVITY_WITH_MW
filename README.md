@@ -594,7 +594,7 @@ We invite physicists to take it further.
 ---
 
 ### ABOUT SPEEDUPS 
-#### The MW Framework guarantees `O(n)` inference for any trained instance. 
+#### The MW Framework THEORITICALLY (NOT PRACTICALLY as it depends on many factors)guarantees `O(n)` inference for any trained instance. 
 The reported speedups are *relative* to conventional solvers at equivalent n:
 
 | Baseline Complexity | Domain Example | MW Speedup | Status |
