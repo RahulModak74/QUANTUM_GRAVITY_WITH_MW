@@ -24,6 +24,10 @@ via inference on physics-constrained manifolds.
 Key document
 MW_Framework_Quantum_Vision.pdf
 
+See https://github.com/RahulModak74/mw-framework
+
+where 10 ^ 6 claim is realized for frequency match
+
 For additional conceptual context (optional):
 
 
