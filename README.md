@@ -147,7 +147,8 @@ mirrors
 The uncertainty principle is not an independent postulate. It is a
 geometric consequence of curvature at fundamental scales.
 
-### 3. mw_quantum_gravity.pdf (Zenodo DOI: 10.5281/zenodo.15304813)
+### 3. mw_quantum_gravity.pdf https://zenodo.org/records/19304813
+
 **The Student-t(ν=0.8) demonstration — five emergent properties:**
 
 A 20-dimensional Riemannian manifold trained on 30,000 synthetic
@@ -578,7 +579,7 @@ We invite physicists to take it further.
   *Kerr Van Vleck determinants, LIGO waveform match, 4.2M× speedup.*
 - Modak, R. & Walawalkar, R. (2026). A Student-t(ν=0.8) Prior Yields a
   Riemannian Manifold Simultaneously Consistent with GR and QM.
-  Zenodo DOI: 10.5281/zenodo.15304813.
+  Zenodo DOI: 10.5281/zenodo.19304813.
 - Modak, R. & Walawalkar, R. (2026). Quantum Mechanics as Geometry:
   A Geodesic Unification with Gravitation. [This repository, THEORY/]
 - Modak, R. & Walawalkar, R. (2026). Fundamental Field Equations of the
@@ -596,7 +597,7 @@ We invite physicists to take it further.
                Construction of the Joint GR+QM Geometric Object},
   year      = {2026},
   url       = {https://github.com/RahulModak74/QUANTUM_GRAVITY_WITH_MW},
-  doi       = {10.5281/zenodo.15304813},
+  doi       = {10.5281/zenodo.19304813},
   note      = {V4: joint manifold constructed, R_IJ = 8πG T_IJ derived,
                β≈3.24 emergent prediction, ν=0.8 structural result,
                3.3% Einstein residual}
