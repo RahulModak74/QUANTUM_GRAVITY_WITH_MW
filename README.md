@@ -629,6 +629,7 @@ The reported speedups are *relative* to conventional solvers at equivalent n:
 ```
 
 ---
+⚠️ DISCLAIMER: This document is a mathematical exploration of a VAE latent space. The physical interpretations (Einstein residuals, Hawking radiation, falsifiable predictions, unification claims) are speculative analogies, not derived physics. The authors are statisticians and machine learning practitioners, not physicists. These claims have not been peer-reviewed. This work is shared for open exploration and replication, not as established science.
 
 ## Contact
 
