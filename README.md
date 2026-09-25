@@ -11,8 +11,8 @@
 🧠 Theoretical documents on geometric unification of GR and QM
 
 🚀 A forward-looking vision: quantum-scale simulation on classical hardware
-Vision (explicit)
-
+Vision (explicit) .. Theory and logs are here.
+https://github.com/RahulModak74/MW_Geometric_Intelligence
 
 The long-term goal of the MW Framework is:
 
