@@ -1,0 +1,156 @@
+
+=== A_full_prior ===
+    epoch    1  ELBO loss/sample     516.16
+    epoch   25  ELBO loss/sample     159.03
+    epoch   50  ELBO loss/sample     153.10
+    epoch   75  ELBO loss/sample     147.31
+    epoch  100  ELBO loss/sample     140.86
+    epoch  125  ELBO loss/sample     136.91
+    epoch  150  ELBO loss/sample     133.70
+{
+  "train_minutes": 12.6,
+  "data_einstein_rel": 4.318470914199679e-08,
+  "recon_einstein_rel": 0.013009811751544476,
+  "data_hawking": {
+    "slope": -1.0,
+    "r2": 1.0,
+    "n": 10000,
+    "mean_|8piMT_H-1|": 0.0
+  },
+  "recon_hawking": {
+    "slope": -0.929,
+    "r2": 0.83,
+    "n": 10001,
+    "mean_|8piMT_H-1|": 0.027
+  },
+  "ood_recon_einstein_rel": 0.05901625379920006,
+  "ood_M_rel_err": 0.345289021730423,
+  "ood_recon_hawking": {
+    "slope": -0.905,
+    "r2": 0.022,
+    "n": 2364,
+    "mean_|8piMT_H-1|": 0.968
+  },
+  "latent_geometry": {
+    "posterior_var_vs_M": {
+      "slope": 0.017,
+      "r2": 0.013,
+      "n": 800
+    },
+    "decoder_stretch_vs_M": {
+      "slope": 0.111,
+      "r2": 0.017,
+      "n": 800
+    }
+  }
+}
+
+=== B_full_noprior ===
+    epoch    1  ELBO loss/sample     513.74
+    epoch   25  ELBO loss/sample     156.93
+    epoch   50  ELBO loss/sample     149.77
+    epoch   75  ELBO loss/sample     145.19
+    epoch  100  ELBO loss/sample     137.75
+    epoch  125  ELBO loss/sample     134.78
+    epoch  150  ELBO loss/sample     131.82
+{
+  "train_minutes": 6.9,
+  "data_einstein_rel": 4.318470914199679e-08,
+  "recon_einstein_rel": 0.011172031052410603,
+  "data_hawking": {
+    "slope": -1.0,
+    "r2": 1.0,
+    "n": 10000,
+    "mean_|8piMT_H-1|": 0.0
+  },
+  "recon_hawking": {
+    "slope": -0.664,
+    "r2": 0.419,
+    "n": 10061,
+    "mean_|8piMT_H-1|": 0.032
+  },
+  "ood_recon_einstein_rel": 0.04569973051548004,
+  "ood_M_rel_err": 0.3949000835418701,
+  "ood_recon_hawking": {
+    "slope": -0.93,
+    "r2": 0.02,
+    "n": 1820,
+    "mean_|8piMT_H-1|": 1.18
+  },
+  "latent_geometry": {
+    "posterior_var_vs_M": {
+      "slope": 0.021,
+      "r2": 0.013,
+      "n": 800
+    },
+    "decoder_stretch_vs_M": {
+      "slope": 0.083,
+      "r2": 0.01,
+      "n": 800
+    }
+  }
+}
+
+=== C_heldout_TH ===
+    epoch    1  ELBO loss/sample     496.74
+    epoch   25  ELBO loss/sample     157.36
+    epoch   50  ELBO loss/sample     147.21
+    epoch   75  ELBO loss/sample     136.07
+    epoch  100  ELBO loss/sample     132.36
+    epoch  125  ELBO loss/sample     127.51
+    epoch  150  ELBO loss/sample     124.79
+{
+  "train_minutes": 11.6,
+  "data_einstein_rel": 4.318470914199679e-08,
+  "recon_einstein_rel": 0.010820097289979458,
+  "ood_recon_einstein_rel": 0.008829395286738873,
+  "ood_M_rel_err": 0.2645556330680847,
+  "latent_geometry": {
+    "posterior_var_vs_M": {
+      "slope": -0.013,
+      "r2": 0.009,
+      "n": 800
+    },
+    "decoder_stretch_vs_M": {
+      "slope": 0.26,
+      "r2": 0.138,
+      "n": 800
+    }
+  }
+}
+
+=== D_shuffled ===
+    epoch    1  ELBO loss/sample     643.80
+    epoch   25  ELBO loss/sample     223.79
+    epoch   50  ELBO loss/sample     206.36
+    epoch   75  ELBO loss/sample     198.72
+    epoch  100  ELBO loss/sample     194.21
+    epoch  125  ELBO loss/sample     191.23
+    epoch  150  ELBO loss/sample     189.48
+{
+  "train_minutes": 13.1,
+  "data_einstein_rel": 0.6485170722007751,
+  "recon_einstein_rel": 0.5960453152656555,
+  "data_hawking": {
+    "slope": -0.001,
+    "r2": 0.0,
+    "n": 10000,
+    "mean_|8piMT_H-1|": 0.476
+  },
+  "recon_hawking": {
+    "slope": 0.573,
+    "r2": 0.193,
+    "n": 10129,
+    "mean_|8piMT_H-1|": 0.425
+  },
+  "ood_recon_einstein_rel": 3.209386110305786,
+  "ood_M_rel_err": 0.3893870711326599,
+  "ood_recon_hawking": {
+    "slope": 0.976,
+    "r2": 0.872,
+    "n": 4000,
+    "mean_|8piMT_H-1|": 0.212
+  }
+}
+
+DONE

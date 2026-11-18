@@ -1,0 +1,6 @@
+*.npy
+__pycache__/
+*.aux
+*.log
+*.out
+stdout.txt
