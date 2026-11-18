@@ -1,3 +1,5 @@
+> **Note (Nov 2026):** this file is from the March 2026 version and is kept for reference. The current code, results and paper (v2) are in [`Nov-2026_tests/`](../Nov-2026_tests/).
+
 # Quantum Gravity Manifold Extraction Toolkit
 
 **Theory Catches Up With Algorithm!**
