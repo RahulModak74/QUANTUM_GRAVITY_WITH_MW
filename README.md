@@ -36,6 +36,14 @@ The current code, results and paper are in **[`Nov-2026_tests/`](Nov-2026_tests/
 
 The other approaches are full theories of quantum gravity. MW is compared on structure: one learned manifold that holds GR and QM content together. **MW removes the coupling step that PDE-based methods require**, so coupling theories becomes joint density estimation on one manifold.
 
+### Think manifolds, not PDEs
+
+Traditional coupled-PDE solvers compute trajectories on a discretized mesh by evaluating local tangent spaces (derivatives). This local approach requires mesh refinement, interface conditions, and time-stepping, which become intractable when the system spans more than 55 orders of magnitude.
+
+The MW framework abandons solving. Instead, it uses the governing equations as Bayesian priors to carve out the valid region of a joint state space. A variational autoencoder then learns the density of this valid region: the solution manifold. The VAE does not march forward in time; it represents the space of valid states. **By replacing local tangent approximations with a global manifold representation, MW removes the structural need for meshes, stiffness handling, and scale-bridging time steps.**
+
+*The present tests use Planck units over a moderate range; the cross-scale case is the setting this approach is designed for and the next demonstration (paper v2, Section 3).*
+
 ### Run it
 
 ```bash
