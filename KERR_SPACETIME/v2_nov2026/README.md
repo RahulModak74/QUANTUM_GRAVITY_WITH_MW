@@ -57,7 +57,7 @@ Held-out round-trip of the manifold over 20,000 unseen spacetime points: median 
 ## Run
 
 ```bash
-python3 kerr_v2_data_train.py --steps 80000   # ~1 h CPU; writes data/, model/, results/train_*
+python3 kerr_v2_data_train.py --steps 80000   # ~1 h CPU; writes data/ (41 MB, not committed), model/, results/train_*
 python3 kerr_v2_gw.py                         # ~2 min; writes results/gw_v2.json, results/fig_kerr_v2.png
 ```
 `kerr_v2_common.py` holds the exact Kerr formulas and the model class. The v1 diagnosis step needs `../kerr_vae.pth`
