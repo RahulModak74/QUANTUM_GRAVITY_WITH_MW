@@ -1,0 +1,20 @@
+{
+ "lalsuite": "7.7.1",
+ "note": "median of 5 calls; aligned spin chi1 = 0.9 on the heavier body; f_low = 20 Hz. SEOBNRv4 is NR-calibrated to mass ratio 1:8 (plus the test-particle limit) and IMRPhenomD to 1:18; at eta 0.0099 (1:99) both run outside their NR-calibrated range (timing only)",
+ "cases": {
+  "M=60Msun_eta=0.1": {
+   "m1": 53.237900077244504,
+   "m2": 6.762099922755496,
+   "SpinTaylorT4_ms": 6.626135000260547,
+   "SEOBNRv4_opt_ms": 44.94714300017222,
+   "IMRPhenomD_ms": 6.563445000210777
+  },
+  "M=60Msun_eta=0.0099": {
+   "m1": 59.4,
+   "m2": 0.6000000000000014,
+   "SpinTaylorT4_ms": 60.26460199973371,
+   "SEOBNRv4_opt_ms": 113.64113200033898,
+   "IMRPhenomD_ms": 6.916272999660578
+  }
+ }
+}
