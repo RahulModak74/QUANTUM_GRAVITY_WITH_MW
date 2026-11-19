@@ -1,0 +1,139 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref,xcolor,framed}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+\input{numbers.tex}
+
+\title{\textbf{Quantum Mechanics as Geometry:\\ A Geodesic Unification with Gravitation}\\[3pt]
+\large Version 2 (November 2026): the principle, realised and measured on a trained M-W manifold}
+\author{Rahul Modak$^{1}$ and Rahul Walawalkar$^{1,2}$\\[2pt]
+\small $^1$Bayesian Cybersecurity Pvt.\ Ltd., Mumbai, India \quad $^2$NETRA and Caret Capital\\
+\small Code: \url{https://github.com/RahulModak74/QUANTUM_GRAVITY_WITH_MW}\\ \small (folder \texttt{Nov-2026\_tests/EXPLORATORY\_PHYSICS})}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{framed}
+\small\textbf{Disclaimer.} This is a conceptual note with computational support. We do not claim to
+have derived quantum mechanics from geometry or to have solved quantum gravity. Version 1 proposed
+a principle. Version 2 tests what that principle implies on one concrete object, the Nov-2026
+M-W manifold trained on synthetic GR+QM data, and reports what holds there.
+\end{framed}
+
+\begin{abstract}
+Einstein showed that gravity is the geometry of spacetime. Version 1 proposed an equivalence
+principle in which gravitational and quantum behaviour are both geodesic motion on one manifold
+$\mathcal M$, derived from the action
+$\int(g_{ij}\dot z^i\dot z^j+\hbar A_i\dot z^i)\,d\lambda$. Version 2 evaluates every term of that
+action on a trained M-W manifold. (i) One metric carries both theories: $g$ is a sum of a
+gravity part and a quantum part, and so is the curvature, through an Einstein-form equation
+$G_{ab}=\kappa(T^{\rm grav}+T^{\rm quant}+\dots)_{ab}$ that holds to $\GaussA$. (ii) Geodesics are
+physical: the geodesic between two black holes is a continuous family of black holes. (iii) The
+quantum connection built from the decoded wavefunction is pure gauge ($|F|/|\partial A|<\BerryA$),
+so the $\hbar A$ term contributes only an endpoint phase. The classical and quantum limits of the
+action therefore share the same geodesics on this manifold.
+\end{abstract}
+
+\section{The principle (unchanged from Version 1)}
+\begin{quote}
+All physical systems satisfying both gravitational and quantum constraints evolve as geodesic
+flows on a single underlying manifold $\mathcal M$.
+\end{quote}
+GR identifies gravity with geometry: free particles follow geodesics
+$\ddot x^\mu+\Gamma^\mu{}_{\nu\rho}\dot x^\nu\dot x^\rho=0$, and curvature is sourced by
+$T_{\mu\nu}$. QM is usually stated algebraically, but its dynamics also come from an extremal
+principle (the path integral), and curvature in state space has observable effects (Berry phase).
+Version 1 proposed one variational principle for both:
+\begin{equation}
+\delta\!\int_{\gamma\subset\mathcal M}\bigl(g_{ij}(z)\dot z^i\dot z^j+\hbar A_i(z)\dot z^i\bigr)\,d\lambda=0.
+\label{eq:action}
+\end{equation}
+Version 1 left $\mathcal M$ abstract. Here $\mathcal M$ is a concrete manifold, so every term of
+(\ref{eq:action}) can be evaluated.
+
+\section{The manifold}
+$\mathcal M$ is the decoder image of the Nov-2026 M-W VAE (checkpoint \texttt{A\_full\_prior}),
+trained on 30{,}000 joint GR+QM states from six regimes, with GR and QM constraints as Bayesian
+priors. The decoder $f$ maps the \ActA{} active latent axes into 30 standardised columns. The
+metric is the pullback $g_{ab}=\langle\partial_af,\partial_bf\rangle$, computed exactly together
+with its connection and curvature.
+
+\section{One metric, two theories}
+The inner product is a sum over data columns, so the metric decomposes exactly:
+\begin{equation}
+g_{ab}=g^{\rm grav}_{ab}+g^{\rm quant}_{ab}+g^{\rm hor}_{ab}+g^{\rm coord}_{ab}+g^{\rm Planck}_{ab},\qquad
+g^{(s)}_{ab}=\sum_{k\in s}\partial_af^k\,\partial_bf^k.
+\end{equation}
+The distance between two states is measured jointly by how their gravitational quantities
+($g_{\mu\nu}$, $R$, $T_{\mu\nu}$) and their quantum quantities ($\psi$, $\Delta x\Delta t$) differ.
+Curvature splits the same way through the Gauss equation, giving an Einstein-form field equation
+with additive sources,
+\begin{equation}
+G_{ab}=\kappa\bigl(T^{\rm grav}+T^{\rm quant}+T^{\rm hor}+T^{\rm coord}+T^{\rm Planck}\bigr)_{ab},
+\qquad \nabla^aT_{ab}=0,
+\end{equation}
+which holds on the trained manifold to $\GaussA$ (Gauss) and $\BianA$ (Bianchi); details in
+\emph{Field Equations of the M-W Manifold, Version 2}.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{@{}lccccc@{}}\toprule
+Regime & gravity & quantum & horizon & Planck & coord.\\\midrule
+dust & \ShGrDustA & \ShQuDustA & \ShHoDustA & \ShPlDustA & \ShCoDustA\\
+radiation & \ShGrRadiationA & \ShQuRadiationA & \ShHoRadiationA & \ShPlRadiationA & \ShCoRadiationA\\
+vacuum & \ShGrVacuumA & \ShQuVacuumA & \ShHoVacuumA & \ShPlVacuumA & \ShCoVacuumA\\
+black hole & \ShGrBlackholeA & \ShQuBlackholeA & \ShHoBlackholeA & \ShPlBlackholeA & \ShCoBlackholeA\\
+wormhole & \ShGrWormholeA & \ShQuWormholeA & \ShHoWormholeA & \ShPlWormholeA & \ShCoWormholeA\\
+Hawking & \ShGrHawkingA & \ShQuHawkingA & \ShHoHawkingA & \ShPlHawkingA & \ShCoHawkingA\\\bottomrule
+\end{tabular}
+\caption{Share (\%) of the scalar curvature $|R|$ contributed by each column group, mean over 40
+unseen test states per regime. Every regime is curved by gravitational and quantum content
+together.}
+\label{tab:share}
+\end{table}
+
+Table~\ref{tab:share} gives the measured version of the principle's central claim: no regime is
+curved by gravity alone or by quantum content alone. In the matter regimes the quantum columns
+carry the largest share of curvature. In the black-hole and Hawking regimes the gravity and horizon
+columns take a larger share than in the matter regimes, while quantum content still contributes.
+
+\section{Geodesics are physical}
+The geodesic between a black hole of mass $\GeoMsA$ and one of mass $\GeoMeA$ was found by
+minimising path energy. $\GeoNormalA\%$ of its acceleration is normal to the manifold (straight
+latent line: $\LineNormalA\%$), as required of a geodesic. Every point along it decodes to a black
+hole, with mass increasing uniformly along the path, and the Hawking relation holds along it to
+$|8\pi MT_H-1|=\GeoHawkA$. Geodesic motion on $\mathcal M$ moves continuously through physically
+meaningful states, as the principle requires.
+
+\section{The quantum connection is pure gauge here}
+The decoded wavefunction $\psi=\psi_{\rm re}+i\psi_{\rm im}$ defines the natural $U(1)$ connection
+\begin{equation}
+A_a=\frac{\operatorname{Im}(\psi^*\partial_a\psi)}{|\psi|^2}=\partial_a\theta,\qquad F_{ab}=\partial_aA_b-\partial_bA_a.
+\end{equation}
+Evaluated with exact derivatives at 600 test states, $|F|/|\partial A|<\BerryA$ for both checkpoints:
+$F=0$, so $A$ is pure gauge, as it must be for a single complex amplitude away from its zeros. The
+term $\hbar\!\int\!A_i\dot z^i d\lambda=\hbar\,\Delta\theta$ depends only on the endpoints and
+does not change the Euler--Lagrange equations of (\ref{eq:action}). On this manifold the classical
+($\hbar\to0$) and quantum regimes of the action share the same geodesics, and the quantum
+content enters through the metric (Section~3) rather than through a separate force. A non-zero
+Berry curvature needs a multi-component state, i.e.\ more than one complex amplitude per row; we
+list this as the next construction.
+
+\section{Uncertainty and non-commutativity}
+Version 1 related $[\hat x,\hat p]=i\hbar$ to $[\nabla_i,\nabla_j]V^k=R^k{}_{lij}V^l$. On the
+trained manifold the curvature is computed exactly. Sectional curvatures of coordinate planes are
+small and of both signs (median $\KmedA$, 5--95\% $[\KloA,\KhiA]$), so covariant derivatives fail
+to commute by a measurable, direction-dependent amount. A quantitative link between this and
+$\hbar$ is not established here and remains a conjecture.
+
+\section{Conclusion}
+Einstein replaced gravitational force with geometry. On a concrete manifold that holds GR and QM
+content jointly, both theories now enter one metric and one Einstein-form equation as additive
+sources. Geodesics run through physically meaningful states, and the quantum phase term of the
+proposed action is pure gauge. This supports, on one learned object, the reading that the
+incompatibility between the two theories is a mismatch of descriptions rather than of physics.
+It is offered as a working picture to test further, not as a derivation.
+
+\paragraph{Reproduce.} In \texttt{EXPLORATORY\_PHYSICS/code}:
+\texttt{mw\_exact\_geometry.py}, \texttt{mw\_berry\_check.py}. Code implementation was assisted by
+AI coding tools; modelling choices and claims are the authors'.
+\end{document}

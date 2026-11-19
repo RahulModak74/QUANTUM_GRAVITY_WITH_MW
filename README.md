@@ -44,6 +44,10 @@ The MW framework abandons solving. Instead, it uses the governing equations as B
 
 *The present tests use Planck units over a moderate range; the cross-scale case is the setting this approach is designed for and the next demonstration (paper v2, Section 3).*
 
+### The reverse process: manifold → field equations
+
+The standard route goes from PDEs to numerics. MW also runs **in reverse**: the trained manifold is where the theory is tested, and only then is it converted to PDEs and papers. **[`Nov-2026_tests/EXPLORATORY_PHYSICS/`](Nov-2026_tests/EXPLORATORY_PHYSICS/)** reads the field equations off the trained 20-D manifold with exact derivatives and writes them in Einstein's form, `G_ab = κ T^MW_ab`. Gravity and quantum sources add in one equation, the Gauss identity holds to 10⁻⁸, and conservation `∇ᵃT_ab = 0` holds to 10⁻¹². The same folder validates the earlier theory scripts and has v2 of the three theory PDFs. *Disclaimer: this shows what the PDEs of our learned manifold would be. It is not a claim to have solved physics.*
+
 ### Run it
 
 ```bash
@@ -62,11 +66,12 @@ Details are in [`Nov-2026_tests/README.md`](Nov-2026_tests/README.md).
 | Path | What it is | Status |
 |---|---|---|
 | [`Nov-2026_tests/`](Nov-2026_tests/) | Improved code (v5), controlled runs, paper v2, LinkedIn post | **Current** |
+| [`Nov-2026_tests/EXPLORATORY_PHYSICS/`](Nov-2026_tests/EXPLORATORY_PHYSICS/) | Reverse process: Einstein-form field equations read off the manifold; v2 of the three theory PDFs; validation of `THEORY/` scripts | **Current** |
 | `qg_toy_data_generator_v4.py`, `qg_toy_vae_trainer_v4.py` | March 2026 data generator and trainer behind the first paper | Archive |
 | `qg_toy_data_generator.py`, `qg_toy_vae_trainer.py`, `qg_toy_visualizer.py` | Earlier versions and visualiser | Archive |
 | `qg_manifold_visualization_clean.png` | March 2026 figure | Archive |
 | `create_mercury_orbital_data.py` | Mercury orbital data generator | Archive |
-| [`THEORY/`](THEORY/) | March 2026 paper (`mw_quantum_gravity.pdf`), manifold and PDE extraction tools, theory notes | Archive |
+| [`THEORY/`](THEORY/) | March 2026 paper (`mw_quantum_gravity.pdf`), manifold and PDE extraction tools, theory notes (v2 of the three PDFs and corrected extraction: `Nov-2026_tests/EXPLORATORY_PHYSICS/`) | Archive |
 | [`PDF_PAPERS_THEORY/`](PDF_PAPERS_THEORY/) | MW theory documents: field equations, QM as geometry, formal theory, differential-geometry primer | Theory |
 | `MW_Framework_Quantum_Vision.pdf` | MW framework vision document | Theory |
 | `STATUS_OF_QR_GM_DATA.md` | March 2026 response to reviewer objections | Archive |

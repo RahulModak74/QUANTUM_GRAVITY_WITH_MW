@@ -1,0 +1,14 @@
+{
+ "A_full_prior": {
+  "points": 600,
+  "F_over_dA_median": 2.9704672292841385e-16,
+  "F_over_dA_max": 7.947582778883404e-16,
+  "psi_abs_min": 5.775798679615294e-06
+ },
+ "B_full_noprior": {
+  "points": 600,
+  "F_over_dA_median": 3.089565858034151e-16,
+  "F_over_dA_max": 7.031614560952611e-16,
+  "psi_abs_min": 6.134830150804804e-05
+ }
+}

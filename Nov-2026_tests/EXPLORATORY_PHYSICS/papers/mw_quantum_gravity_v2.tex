@@ -1,0 +1,134 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref,xcolor,framed}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+\setlength{\columnsep}{0.28in}
+\input{numbers.tex}
+
+\title{\vspace{-1.2em}\textbf{A Student-t($\nu=0.8$) Prior on Measurement Processes Yields a Riemannian\\
+Manifold Holding General Relativity and Quantum Mechanics Jointly}\\[2pt]
+\large Version 2 (November 2026): controlled results and the manifold's field equations}
+\author{Rahul Modak$^{1}$ \quad Dr.\ Rahul Walawalkar$^{2}$\\[2pt]
+\small $^1$Bayesian Cybersecurity Pvt.\ Ltd., Mumbai/Thane, India \quad
+$^2$Carnegie Mellon University; NETRA; Caret Capital\\
+\small Code: \url{https://github.com/RahulModak74/QUANTUM_GRAVITY_WITH_MW} (folder \texttt{Nov-2026\_tests})\\
+\small Supersedes the March 2026 version of this note}
+\date{}
+
+\begin{document}
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{framed}
+\small\textbf{Disclaimer.} We do not claim to have solved quantum gravity. The training data are
+synthetic, and the results describe a learned object: a manifold that holds GR and QM content
+together. The field equations in Section~5 are the equations \emph{that manifold} satisfies,
+written in Einstein's form. They are not offered as laws of nature.
+\end{framed}
+\begin{abstract}
+A Bayesian variational autoencoder (VAE) with a 20-dimensional latent space is trained on
+30{,}000 synthetic spacetime states from six regimes (dust, radiation, vacuum, black hole,
+wormhole, Hawking radiation). Each row carries GR and QM quantities drawn from one joint sample.
+GR and QM constraints enter as priors, and the measurement process enters as a Student-t prior
+with $\nu=0.8$. Version 2 replaces the March 2026 results with controlled runs on corrected code
+and adds the manifold's field equations. \textbf{(1)} One latent point decodes GR and QM
+quantities together: Einstein trace residual 1.3\%, Hawking $T_H\propto M^{-0.93}$ ($R^2=0.83$).
+\textbf{(2)} The M-W priors make the joint fit faithful: without them the Hawking fit drops to
+$R^2=0.42$. \textbf{(3)} The manifold carries the joint, not the columns: shuffling rows within
+each regime raises the Einstein residual to 60\%. \textbf{(4)} The manifold's curvature obeys
+$G_{ab}=\kappa T^{\rm MW}_{ab}$ exactly ($\GaussA$), with gravity and quantum sources entering
+additively and $\nabla^aT^{\rm MW}_{ab}=0$ ($\BianA$).
+\end{abstract}
+\vspace{1em}
+\end{@twocolumnfalse}
+]
+
+\section{Motivation}
+GR requires a smooth differentiable manifold; QM requires probabilistic behaviour that is
+non-smooth at the Planck scale. Existing approaches add dimensions (string theory), discretise
+spacetime (LQG, CDT) or restrict to anti-de Sitter geometry (AdS/CFT). The M-W framework,
+developed for physics-informed anomaly detection in battery electrochemistry, takes a different
+route: it learns one joint density over both theories' quantities, with their constraints as
+Bayesian priors. Coupling theories then becomes density estimation on one manifold.
+
+\section{The Student-t($\nu=0.8$) measurement prior}
+\[
+p(x\,|\,\nu)=\frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})}
+\Bigl(1+\frac{x^2}{\nu}\Bigr)^{-\frac{\nu+1}{2}},\quad p\sim|x|^{-(\nu+1)}.
+\]
+For $\nu>2$ the variance is finite; for $1<\nu\le2$ the mean exists but the variance does not;
+for $\nu\le1$ neither exists. At $\nu=0.8$ the density tail decays as $|x|^{-1.8}$: normalisable,
+with no finite moments. We use this regime for the Planck/topology flags (prior C6), so rare
+discontinuous events are not penalised as outliers. The other five priors (Einstein trace,
+wavefunction normalisation, spacetime uncertainty, energy condition, metric signature) are
+Gaussian. The choice $\nu=0.8$ is a modelling decision; we do not claim it is derived.
+
+\section{Construction (v5 code)}
+Each row is one draw from one joint distribution: the physical parameters are sampled once and
+every column is derived from them (the March code drew the black-hole mass twice). The priors read
+their columns by name (the March code read three of them one column off). Encoder and decoder have
+hidden widths 384/256/192 with LayerNorm and tanh, latent dimension 20, and 150 epochs. A plain VAE
+without priors and a row-shuffled control are trained the same way.
+
+\section{Results}
+\begin{table}[h]\centering\small
+\begin{tabular}{@{}lccc@{}}\toprule
+Measure (decoded test states) & M-W & plain & shuffled\\\midrule
+Einstein trace residual & 1.3\% & 1.1\% & 59.6\%\\
+Hawking slope ($-1$ exact) & $-0.93$ & $-0.66$ & --\\
+Hawking $R^2$ & 0.83 & 0.42 & 0.19\\\bottomrule
+\end{tabular}
+\caption{Results 1--3 (source: \texttt{results.json}).}
+\end{table}
+Results 1--3 are reported in full in the Nov-2026 paper. The shuffle control keeps every value of
+every column but breaks which values occur together. Because it destroys both relations, they
+are carried by the joint structure the manifold learns, not by the individual columns.
+
+\section{The manifold's field equations}
+With the decoder $f$ as an immersion of the \ActA{} active latent axes into standardised data space,
+the pullback metric $g_{ab}=\langle\partial_af,\partial_bf\rangle$, its connection and the second
+fundamental form $\mathrm{II}_{ab}$ are computed exactly. The Gauss equation gives
+\begin{align*}
+G_{ab}&=\kappa T^{\rm MW}_{ab},\\
+\kappa T^{\rm MW}_{ab}&=\langle H,\mathrm{II}_{ab}\rangle-g^{cd}\langle\mathrm{II}_{ac},\mathrm{II}_{bd}\rangle\\
+&\quad-\tfrac12g_{ab}(|H|^2-|\mathrm{II}|^2),
+\end{align*}
+and $T^{\rm MW}$ splits exactly into gravity, quantum, horizon, coordinate and Planck-flag terms.
+On \NptsA{} unseen test states, the Riemann tensor computed from the connection and the one
+computed from $\mathrm{II}$ agree to $\GaussA$; $\nabla^aG_{ab}=0$ holds to $\BianA$. In the
+black-hole regime the shares of $|R|$ are gravity $\ShGrBlackholeA\%$, quantum $\ShQuBlackholeA\%$,
+horizon $\ShHoBlackholeA\%$; in dust the quantum columns dominate ($\ShQuDustA\%$). A geodesic between
+black holes of mass $\GeoMsA$ and $\GeoMeA$ passes through black holes of uniformly increasing
+mass. The derivation and all checks are in \emph{Field Equations of the M-W Manifold, Version 2}.
+
+\section{Structural comparison}
+\begin{table}[h]\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}\toprule
+Approach & Extra dim. & Discretise & AdS only & Single obj.\\\midrule
+String theory & Yes & No & Partial & No\\
+LQG & No & Yes & No & No\\
+CDT & No & Yes & No & No\\
+AdS/CFT & Yes & No & Yes & No\\
+\textbf{M-W} & \textbf{No} & \textbf{No} & \textbf{No} & \textbf{Yes}\\\bottomrule
+\end{tabular}
+\end{table}
+The other approaches are full theories of quantum gravity; M-W is compared on structure only.
+\textbf{M-W removes the coupling step that PDE-based methods require.}
+
+\section{What changed from Version 1}
+Version 1 (March 2026) listed five ``emergent'' properties. Version 2 keeps only what the corrected
+v5 code and controls support: results 1--3 above, plus the field equations. Properties not
+re-tested here (the LIGO waveform comparison, the latent-separation claim as stated, and the
+Planck-discreteness interpretation of the tail exponent) are not carried forward. The Version-1
+figure and its 3.3\% Einstein residual came from the v4 pipeline with the column-index error.
+
+\section{Limitations}
+Training data are synthetic and in Planck units over a moderate range. Latent coordinates are not
+spacetime coordinates, and the field equations hold for the learned manifold with the Euclidean
+metric of standardised data. Results are from one training seed per configuration.
+
+\section*{Reproduce}
+\small Results 1--3: \texttt{qg\_v5\_experiments.py} in \texttt{Nov-2026\_tests/code}.
+Field equations: \texttt{mw\_exact\_geometry.py} in \texttt{EXPLORATORY\_PHYSICS/code}. Code
+implementation was assisted by AI coding tools; modelling choices and claims are the authors'.
+\end{document}

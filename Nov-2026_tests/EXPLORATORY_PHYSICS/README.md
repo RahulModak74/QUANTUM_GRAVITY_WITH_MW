@@ -1,0 +1,91 @@
+# EXPLORATORY_PHYSICS: from manifold to field equations (the reverse process)
+
+> **Disclaimer.** We are **not** claiming to solve physics, quantum gravity or any open problem. This folder shows how the M-W manifold we learned translates into PDEs: the differential equations that manifold satisfies, written in the exact shape of Einstein's field equations. It is a demonstration that the method works, not a claim about nature.
+
+## The idea: invert the process
+
+**The standard way:** write the PDEs first (pen and paper), then build numerical solvers, meshes and discretisations to approximate them. A new theory can take years to reach a testable form.
+
+**The M-W way:** supply the theories' constraints as Bayesian priors, let Pyro/PyTorch learn the joint **manifold**, and test the new idea *on the manifold*. Then convert the manifold into PDEs and papers. The manifold is where the theory is tested; the equations come last.
+
+This is **computational constructivism applied to quantum gravity**: build the object first, then read off its laws. For a new idea such as this QG construction, it takes **a couple of weeks** from concept to tested object to Einstein-form equations, against **years** for the old route. People cannot construct a manifold of more than 4–5 dimensions by hand. Pyro builds a **20-dimensional** one (18 dimensions active) on a laptop, as shown here.
+
+### Think manifold, not PDE
+
+A PDE solver also uses geometry, but only cell by cell: it evaluates local tangents (derivatives) in each cell, and the solver stitches the cells into a mesh. The learned manifold *is* the global object: a smooth chart with exact derivatives at every point, which works as a mesh of arbitrary resolution with no meshing step. For the next generation of science, the tool is the ubiquitous Pyro + PyTorch laptop, and the habit is **manifold-level thinking** instead of pen-and-paper PDE thinking.
+
+---
+
+## What was done
+
+1. **Validated the three March/January theory PDFs and the four `THEORY/` scripts** by re-running the scripts, unchanged, on the Nov-2026 v5 manifold (`legacy_rerun/`).
+2. **Rebuilt the extraction exactly** (`code/`): the metric, connection, second fundamental form, Riemann and Ricci tensors and the Einstein tensor of the trained manifold, with exact derivatives, at 240 unseen test states for each model.
+3. **Wrote new versions of the three PDFs** (`papers/`), with every number generated from the runs.
+
+## Results (checkpoint `A_full_prior`, 240 unseen test states)
+
+| What | Result |
+|---|---|
+| **Field equation of Einstein's form** | `G_ab = R_ab − ½ g_ab R = κ T^MW_ab`, with `T^MW` built from the manifold's extrinsic curvature |
+| Two independent routes to the Riemann tensor agree | median **1.2×10⁻⁸** |
+| Conservation `∇ᵃT^MW_ab = 0` (contracted Bianchi) | median **7.6×10⁻¹³** |
+| Gravity and quantum sources add in one equation | `G = κ(T^grav + T^quant + T^hor + T^coord + T^Planck)`, exact to **10⁻¹⁵** |
+| Every regime is curved by GR and QM content together | e.g. black hole: gravity 27%, quantum 21%, horizon 32% of \|R\| |
+| Geodesic between a black hole of M≈0.6 and one of M≈1.9 | a continuous family of black holes with uniformly increasing mass; 94% of its acceleration is normal to the manifold (straight line: 3%) |
+| Quantum phase connection `A = Im(ψ*dψ)/|ψ|²` | pure gauge (`F = 0` to 10⁻¹⁶): the ħA term adds only an endpoint phase |
+
+![exploratory figure](results/fig_exploratory.png)
+
+Full numbers for both models (with and without M-W priors) are in [`results/exact_geometry.json`](results/exact_geometry.json) and [`results/exact_geometry_log.txt`](results/exact_geometry_log.txt).
+
+## Validation of the earlier PDFs and scripts
+
+| Item | Finding | In v2 |
+|---|---|---|
+| `qg_extract_fast.py`: metric `g = JᵀJ` | **Correct.** This is the pullback metric. | kept, now with exact 2nd derivatives |
+| `qg_extract_fast.py`: "Ricci scalar" | Not a curvature: it is `½(log det g + tr g⁻¹ − n)`, dominated by `1/λ_min` from unused latent axes. This produced v1's **R = 2.88×10⁷**. On v5 it gives 1.7×10³, while the exact \|R\| median is 307. | replaced by exact R |
+| `qg_extract_pdes_fast.py`: Christoffel symbols | Built from differences between consecutive **random** samples, which are not neighbouring points. | replaced by exact Γ |
+| `qg_extract_pdes_fast.py`: Ricci tensor | The kept terms are antisymmetric in (i,j), so `R = gⁱʲR_ij ≡ 0`. The rerun prints −1.3×10⁻¹³ against an input of 1.2×10⁷. | replaced; Ricci symmetric to 10⁻¹⁰ |
+| v1 PDFs: "3.3% Einstein residual" | from the v4 pipeline with the column-index bug | 1.3% (v5) |
+| v1 field equations for `A_i`, `F_ij`, Euler characteristic, unified `R_IJ` | not extracted from any manifold | `A` computed and found pure gauge; others not carried forward |
+| `mw_quantum_gravity.pdf` "five emergent properties" | only results 1–3 survive the corrected code and controls | kept 1–3, added the field equations |
+
+`analyze_manifold.py` and `plot_manifold.py` only summarise and plot the `.npz` file, so they inherit the proxy "R". The outputs of all four scripts on v5 are in `legacy_rerun/`.
+
+## New versions of the three PDFs
+
+| v1 (in `THEORY/`) | v2 (here) |
+|---|---|
+| `MW_Field_Equations.pdf` | [`papers/MW_Field_Equations_v2.pdf`](papers/MW_Field_Equations_v2.pdf): Einstein-form equations read off the manifold, all checks, corrections to v1 |
+| `mw_quantum_gravity.pdf` | [`papers/mw_quantum_gravity_v2.pdf`](papers/mw_quantum_gravity_v2.pdf): Student-t(ν=0.8) prior paper with the v5 controlled results and the field equations |
+| `MW_Theory_Quantum_Mechanics_As_Geometry.pdf` | [`papers/MW_Theory_Quantum_Mechanics_As_Geometry_v2.pdf`](papers/MW_Theory_Quantum_Mechanics_As_Geometry_v2.pdf): the equivalence principle evaluated on the manifold (one metric, additive sources, physical geodesics, pure-gauge phase) |
+
+The v1 files in `THEORY/` are left unchanged.
+
+## How the geometry is computed
+
+The decoder `f: U ⊂ ℝ¹⁸ → ℝ³⁰` (active latent axes → standardised data columns) is an immersion.
+
+- `code/mw_taylor.py` propagates `f`, `∂f` and `∂²f` analytically through each layer (Linear, LayerNorm, tanh). It is exact and agrees with reverse-mode autodiff to 10⁻¹⁵. Nested forward-mode autodiff through LayerNorm gave a **wrong Hessian** in torch 2.13; a finite-difference check caught it.
+- `g = ⟨∂f,∂f⟩`, `Γ = g⁻¹⟨∂f,∂²f⟩`, `II = P⊥∂²f`. Riemann comes from Gauss (`II·II`) and, independently, from `∂Γ + ΓΓ`, with `∂Γ` from 4th-order central differences of the exact Γ.
+- Geodesic: discrete path-energy minimisation (Adam, then L-BFGS), checked by the normal-acceleration test `P∥ x'' = 0`.
+
+## Reproduce (laptop CPU, about 15 minutes)
+
+```bash
+cd Nov-2026_tests/EXPLORATORY_PHYSICS/code
+python3 mw_exact_geometry.py      # -> ../results/exact_geometry.json, _log.txt, _points.npz, geodesic_path_*.npz
+python3 mw_berry_check.py         # -> ../results/berry_check.json
+python3 mw_exact_figures.py       # -> ../results/fig_exploratory.png, ../papers/fig_exploratory.pdf
+python3 mw_paper_numbers.py       # -> ../papers/numbers.tex
+cd ../papers && for f in *.tex; do pdflatex "$f"; done
+../legacy_rerun/run_legacy.sh     # optional: the unchanged THEORY scripts on the v5 manifold
+```
+
+Inputs are the Nov-2026 checkpoints in `../results/checkpoints/`. Needs torch, pyro-ppl, numpy and matplotlib.
+
+## Scope, again
+
+The Einstein-form equation is an identity of any smooth immersed manifold. What the trained M-W manifold supplies is *which* manifold: its metric, curvature and source composition come from GR+QM data and the M-W priors. Latent coordinates are not spacetime coordinates, the ambient metric is the Euclidean metric of standardised data, and the data are synthetic. The claim is that **a learned manifold converts mechanically into field equations of Einstein's shape, with every term computed and checked.** It is not a claim that these are the equations of nature.
+
+*Code implementation was assisted by AI coding tools; modelling choices and claims are the authors'.*

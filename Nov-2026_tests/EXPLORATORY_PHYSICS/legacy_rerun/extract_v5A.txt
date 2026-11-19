@@ -1,0 +1,65 @@
+======================================================================
+FAST EXTRACTION PIPELINE
+======================================================================
+Computes: Metric tensor + Approximate Ricci scalar
+Speed: ~10-20x faster than full extraction
+======================================================================
+Device: cuda
+
+Loading VAE from qg_vae_v5A.pth...
+✅ VAE loaded (latent_dim=20)
+
+Sampling 100 points in latent space...
+======================================================================
+FAST QUANTUM GRAVITY MANIFOLD EXTRACTOR
+======================================================================
+Latent dim: 20, Data dim: 30
+Computes: Metric g_ij + Approximate Ricci scalar
+======================================================================
+
+Extracting geometry for 100 points in 10 batches...
+Computing metric:   0%|          | 0/10 [00:00<?, ?it/s]/home/rahul/.local/lib/python3.10/site-packages/torch/autograd/graph.py:979: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:408.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Computing metric:  10%|█         | 1/10 [00:01<00:11,  1.32s/it]Computing metric:  30%|███       | 3/10 [00:01<00:02,  2.47it/s]Computing metric:  50%|█████     | 5/10 [00:01<00:01,  4.42it/s]Computing metric:  70%|███████   | 7/10 [00:01<00:00,  6.44it/s]Computing metric:  90%|█████████ | 9/10 [00:01<00:00,  8.55it/s]Computing metric: 100%|██████████| 10/10 [00:01<00:00,  5.31it/s]
+
+✅ Extraction complete!
+   Mean Ricci scalar (approx): 11990248.000000 ± 11018983.000000
+
+💾 Saving to qg_geometry_v5A.npz...
+
+======================================================================
+GEOMETRY STATISTICS
+======================================================================
+Metric determinant: 0.000000 ± 0.000000
+
+Mean metric eigenvalues (first 5):
+  λ_0: 0.000027
+  λ_1: 0.000142
+  λ_2: 0.028735
+  λ_3: 0.245596
+  λ_4: 0.301728
+
+✅ Metric is positive definite (Riemannian)
+
+Approximate Ricci scalar: 11990248.000000 ± 11018983.000000
+→ Positive curvature (sphere-like)
+
+======================================================================
+FAST EXTRACTION COMPLETE!
+======================================================================
+
+Saved to: qg_geometry_v5A.npz
+
+Contents:
+  - metric: [n, 20, 20] full metric tensor
+  - ricci_scalar_approx: [n] approximate curvature
+  - z: [n, 20] sample points
+
+To load:
+  data = np.load('qg_geometry_v5A.npz')
+  g = data['metric']
+  R = data['ricci_scalar_approx']
+
+Note: For full curvature (Christoffel, Riemann), use slower extraction
+      or compute on smaller batch (--samples 10)
+======================================================================

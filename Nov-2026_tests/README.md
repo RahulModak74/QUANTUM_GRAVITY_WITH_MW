@@ -11,6 +11,10 @@ Paper: [`paper/mw_joint_manifold_gr_qm_nov2026.pdf`](paper/mw_joint_manifold_gr_
 | **2. M-W priors improve joint fidelity** | Hawking R² **0.83 with M-W priors vs 0.42** for the same VAE without them |
 | **3. The manifold carries the joint, not the columns** | Shuffling columns within each regime (same values, broken rows): Einstein 1.3% → **59.6%**, Hawking R² → 0.19 |
 
+## The reverse process: manifold → field equations
+
+The usual route goes from PDEs to numerics. Here the manifold comes first: the theory is tested on it, and its PDEs are read off afterwards. [`EXPLORATORY_PHYSICS/`](EXPLORATORY_PHYSICS/) computes the exact geometry of this manifold and writes its field equation in Einstein's form, `G_ab = κ T^MW_ab`. Gravity and quantum sources add in one equation; Gauss holds to 10⁻⁸ and Bianchi to 10⁻¹². The folder also has v2 of the three theory PDFs. Disclaimer: this is not a claim to have solved physics.
+
 ## Structural position (paper, Table 1)
 
 | Approach | Extra dim. | Discretise | AdS only | Single object |
