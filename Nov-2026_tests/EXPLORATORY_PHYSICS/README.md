@@ -2,6 +2,8 @@
 
 > **Disclaimer.** We are **not** claiming to solve physics, quantum gravity or any open problem. This folder shows how the M-W manifold we learned translates into PDEs: the differential equations that manifold satisfies, written in the exact shape of Einstein's field equations. It is a demonstration that the method works, not a claim about nature.
 
+**The three v2 PDFs:** [MW_Field_Equations_v2.pdf](papers/MW_Field_Equations_v2.pdf) · [mw_quantum_gravity_v2.pdf](papers/mw_quantum_gravity_v2.pdf) · [MW_Theory_Quantum_Mechanics_As_Geometry_v2.pdf](papers/MW_Theory_Quantum_Mechanics_As_Geometry_v2.pdf). Each has a section on falsifiable predictions.
+
 ## The idea: invert the process
 
 **The standard way:** write the PDEs first (pen and paper), then build numerical solvers, meshes and discretisations to approximate them. A new theory can take years to reach a testable form.
@@ -38,6 +40,31 @@ A PDE solver also uses geometry, but only cell by cell: it evaluates local tange
 
 Full numbers for both models (with and without M-W priors) are in [`results/exact_geometry.json`](results/exact_geometry.json) and [`results/exact_geometry_log.txt`](results/exact_geometry_log.txt).
 
+## Falsifiable predictions
+
+The framework makes a prediction that standard quantum mechanics does not (from `PDF_PAPERS_THEORY/Appendix_A_Falsifiable_Predictions.pdf`). Standard QM has ΔxΔp ≥ ħ/2 and ΔEΔt ≥ ħ/2, but **no lower bound on joint position–time localisation**. M-W predicts
+
+**Δx · Δt ≥ ℓ_P² (1 + β R ℓ_P²)**,  with ℓ_P the Planck length and β an order-unity geometric coupling.
+
+It is falsifiable at three independent levels, and **failure at any one falsifies it**:
+
+1. **Existence:** is there any lower bound on Δx·Δt? Standard QM predicts none.
+2. **Scale:** if a bound exists, is it set by the Planck area ℓ_P²?
+3. **Geometry:** does the bound grow with curvature as 1 + βRℓ_P²?
+
+The defining signature, playing the role Mercury's perihelion played for GR, would be a fundamental lower bound on joint spatial–temporal localisation that depends measurably on spacetime curvature. Candidate tests: ultra-cold atoms or trapped ions plus precision clocks, compared across gravitational environments. Further channels: corrections to the Hawking temperature, logarithmic corrections to black-hole entropy, and curvature-dependent primordial fluctuations.
+
+**What the manifold can and cannot say** ([`results/uncertainty_check.json`](results/uncertainty_check.json)):
+- The decoded bound Δx·Δt ≥ ℓ_P² holds on **239 of 240** test states (no-prior model: 240/240). This is a consistency check, not a test: the bound is built into the training data and into prior C3.
+- With the **exact** Ricci scalar, β_eff ≈ 0 on the manifold (interquartile range −0.001 to 0.001; correlation with R −0.03). It must be, because the synthetic data have no curvature dependence. The earlier **β ≈ 3.24 is withdrawn.** It came from the v1 curvature proxy (not a curvature), and `virtual_test_script.py` kept only β values between 0.01 and 100. β remains a prediction for experiment. To test level 3 on a manifold, generate data with a curvature-dependent bound and recover β blind.
+
+**Falsification tests already run on the manifold (each could have failed):**
+- **Shuffle control:** same values, broken joint rows. Einstein residual 1.3% → 59.6%, Hawking R² 0.83 → 0.19. The relations live in the joint, not the columns.
+- **Prior ablation:** Hawking R² 0.83 with M-W priors vs 0.42 without.
+- **Extraction check:** Gauss (1.2×10⁻⁸) and Bianchi (7.6×10⁻¹³) identities hold with exact geometry. Both fail for the v1 extraction, whose Ricci trace is identically 0.
+
+**Open, runnable test:** replace the Student-t(ν = 0.8) measurement prior with ν > 1 and retrain on identical data. Prediction: the GR sector survives and the Planck/topology structure degrades. Not yet run on v5 (about 12 min per run on a laptop GPU).
+
 ## Validation of the earlier PDFs and scripts
 
 | Item | Finding | In v2 |
@@ -48,6 +75,7 @@ Full numbers for both models (with and without M-W priors) are in [`results/exac
 | `qg_extract_pdes_fast.py`: Ricci tensor | The kept terms are antisymmetric in (i,j), so `R = gⁱʲR_ij ≡ 0`. The rerun prints −1.3×10⁻¹³ against an input of 1.2×10⁷. | replaced; Ricci symmetric to 10⁻¹⁰ |
 | v1 PDFs: "3.3% Einstein residual" | from the v4 pipeline with the column-index bug | 1.3% (v5) |
 | v1 field equations for `A_i`, `F_ij`, Euler characteristic, unified `R_IJ` | not extracted from any manifold | `A` computed and found pure gauge; others not carried forward |
+| Appendix A: β_eff ≈ 3.24 | computed with the proxy R and the condition number, keeping only β in [0.01, 100]; with exact R, β_eff ≈ 0 (the data have no R dependence) | withdrawn; β stays an experimental prediction |
 | `mw_quantum_gravity.pdf` "five emergent properties" | only results 1–3 survive the corrected code and controls | kept 1–3, added the field equations |
 
 `analyze_manifold.py` and `plot_manifold.py` only summarise and plot the `.npz` file, so they inherit the proxy "R". The outputs of all four scripts on v5 are in `legacy_rerun/`.
@@ -76,6 +104,7 @@ The decoder `f: U ⊂ ℝ¹⁸ → ℝ³⁰` (active latent axes → standardise
 cd Nov-2026_tests/EXPLORATORY_PHYSICS/code
 python3 mw_exact_geometry.py      # -> ../results/exact_geometry.json, _log.txt, _points.npz, geodesic_path_*.npz
 python3 mw_berry_check.py         # -> ../results/berry_check.json
+python3 mw_uncertainty_check.py   # -> ../results/uncertainty_check.json (Δx·Δt bound, β_eff)
 python3 mw_exact_figures.py       # -> ../results/fig_exploratory.png, ../papers/fig_exploratory.pdf
 python3 mw_paper_numbers.py       # -> ../papers/numbers.tex
 cd ../papers && for f in *.tex; do pdflatex "$f"; done

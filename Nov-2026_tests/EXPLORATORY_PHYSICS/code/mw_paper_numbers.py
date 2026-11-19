@@ -51,5 +51,14 @@ for tag, r in [('A', A), ('B', B)]:
             gk = {'coordinates': 'Co', 'gravity': 'Gr', 'quantum': 'Qu', 'horizon': 'Ho', 'planck_topology': 'Pl'}[grp]
             mac(f'Sh{gk}{k}{tag}', '$<$1' if 100 * s < 0.5 else f'{100 * s:.0f}')
     mac(f'Berry{tag}', sci(be[f'{"A_full_prior" if tag == "A" else "B_full_noprior"}']['F_over_dA_max'], 0))
+uc = json.load(open(os.path.join(RES, 'uncertainty_check.json')))
+for tag, key in [('A', 'A_full_prior'), ('B', 'B_full_noprior')]:
+    u = uc[key]
+    mac(f'UBound{tag}', f"{100 * u['frac_bound_holds']:.1f}")
+    mac(f'UStates{tag}', u['states'])
+    mac(f'UHeld{tag}', int(round(u['frac_bound_holds'] * u['states'])))
+    mac(f'UBeta{tag}', f"{u['beta_eff_median']:.4f}")
+    mac(f'UBetaLo{tag}', f"{u['beta_eff_iqr'][0]:.4f}"); mac(f'UBetaHi{tag}', f"{u['beta_eff_iqr'][1]:.4f}")
+    mac(f'UCorr{tag}', f"{u['pearson_R_excess']:.3f}")
 open(os.path.join(HERE, '..', 'papers', 'numbers.tex'), 'w').write('\n'.join(L) + '\n')
 print(f'wrote papers/numbers.tex ({len(L)} macros)')

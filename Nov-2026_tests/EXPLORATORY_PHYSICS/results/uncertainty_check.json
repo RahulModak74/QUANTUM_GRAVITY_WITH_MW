@@ -1,0 +1,27 @@
+{
+ "data_min_dxdt": 1.0002026557922363,
+ "A_full_prior": {
+  "states": 240,
+  "frac_bound_holds": 0.9958333333333333,
+  "min_dxdt": 0.9987481637857956,
+  "beta_eff_median": 9.563316229356372e-06,
+  "beta_eff_iqr": [
+   -0.0011080677630328742,
+   0.0010038256968898868
+  ],
+  "pearson_R_excess": -0.028660864837827506,
+  "spearman_R_excess": 0.13664473341551067
+ },
+ "B_full_noprior": {
+  "states": 240,
+  "frac_bound_holds": 1.0,
+  "min_dxdt": 1.0157486689881718,
+  "beta_eff_median": -3.43936844540714e-05,
+  "beta_eff_iqr": [
+   -0.001276702495579566,
+   0.0005530371462568945
+  ],
+  "pearson_R_excess": -0.025484646121792513,
+  "spearman_R_excess": -0.011052275213111336
+ }
+}
