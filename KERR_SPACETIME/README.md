@@ -329,7 +329,7 @@ same waveform model? Yes, to 0.9997–0.999999 (flat and aLIGO noise), for spins
 
 ```bash
 pip install torch pyro-ppl numpy scipy matplotlib
-cd Nov-2026_tests/KERR_SPACETIME/v2_nov2026
+cd KERR_SPACETIME/v2_nov2026
 python3 kerr_v2_data_train.py --steps 80000     # exact geodesics + MW manifold, ~1 h CPU
 python3 kerr_v2_gw.py                           # geometry, amplitude, inspirals, figure (~2 min)
 python3 kerr_v2_benchmark.py                    # cost benchmark -> results/benchmark.json
@@ -382,7 +382,7 @@ lives here, with its full git history. v2 (November 2026) keeps the idea and fix
   author = {Modak, Rahul and Walawalkar, Rahul},
   title  = {Modak-Walawalkar Framework: Kerr Spacetime and Gravitational Waves from a Learned Manifold},
   year   = {2026},
-  url    = {https://github.com/RahulModak74/QUANTUM_GRAVITY_WITH_MW/tree/master/Nov-2026_tests/KERR_SPACETIME},
+  url    = {https://github.com/RahulModak74/QUANTUM_GRAVITY_WITH_MW/tree/master/KERR_SPACETIME},
   doi    = {10.5281/zenodo.19305273}
 }
 ```

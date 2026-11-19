@@ -75,7 +75,7 @@ is no merger or ringdown.
 ## Reproduce
 
 ```bash
-cd Nov-2026_tests/KERR_SPACETIME/v3_spin_family
+cd KERR_SPACETIME/v3_spin_family
 python3 kerr_v3_spin.py data                   # ~4 min  -> data/kerr_family_v3.npz (93 MB, not committed)
 python3 kerr_v3_spin.py train --steps 100000   # ~72 min -> model/kerr_mw_v3_spin.pt (committed)
 python3 kerr_v3_spin.py eval                   # ~1 min  -> results/spin_family.json, fig_spin_family.png
