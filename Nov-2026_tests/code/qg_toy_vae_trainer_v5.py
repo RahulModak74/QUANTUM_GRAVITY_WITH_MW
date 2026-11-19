@@ -10,6 +10,7 @@ so C3, C4 and C6 constrained the wrong columns.
 
 Priors that need a column the run has dropped are skipped automatically.
 use_priors=False gives a plain VAE (reconstruction + KL only) for comparison.
+nu sets the Student-t degrees of freedom of the measurement prior (C6); default 0.8.
 """
 
 import numpy as np
@@ -127,7 +128,7 @@ PRIOR_SCALE = {'einstein': 2.0, 'wavefunction': 1.5, 'uncertainty': 1.0,
                'energy': 1.0, 'signature': 1.0}
 
 
-def make_model(ci, use_priors):
+def make_model(ci, use_priors, nu=0.8):
     def model(x_norm, vae):
         pyro.module('qg_vae', vae)
         B, dev = x_norm.shape[0], x_norm.device
@@ -142,7 +143,7 @@ def make_model(ci, use_priors):
         zero = torch.tensor(0.0, device=dev)
         for k, s in PRIOR_SCALE.items():
             pyro.sample(f'phys_{k}', dist.Normal(zero, torch.tensor(s, device=dev)), obs=ph[k])
-        pyro.sample('phys_planck', dist.StudentT(torch.tensor(0.8, device=dev), zero,
+        pyro.sample('phys_planck', dist.StudentT(torch.tensor(float(nu), device=dev), zero,
                                                  torch.tensor(3.0, device=dev)).expand([B]).to_event(1),
                     obs=ph['planck_vals'])
     return model
@@ -155,7 +156,7 @@ def guide(x_norm, vae):
         pyro.sample('latent', dist.Normal(mu, torch.exp(0.5 * logvar)).to_event(1))
 
 
-def train(data, cols, use_priors=True, epochs=150, batch=128, lr=5e-4, latent_dim=20, seed=0, log=print):
+def train(data, cols, use_priors=True, epochs=150, batch=128, lr=5e-4, latent_dim=20, seed=0, log=print, nu=0.8):
     torch.manual_seed(seed); np.random.seed(seed); pyro.set_rng_seed(seed)
     pyro.clear_param_store()
     dev = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -164,7 +165,7 @@ def train(data, cols, use_priors=True, epochs=150, batch=128, lr=5e-4, latent_di
     Xn = ((X - mean) / std).to(dev)
     vae = QGPhysicsVAE(len(cols), latent_dim, mean.to(dev), std.to(dev)).to(dev)
     ci = {c: i for i, c in enumerate(cols)}
-    svi = SVI(make_model(ci, use_priors), guide,
+    svi = SVI(make_model(ci, use_priors, nu), guide,
               ClippedAdam({'lr': lr, 'clip_norm': 10.0, 'weight_decay': 1e-5}), loss=Trace_ELBO())
     n = len(Xn)
     for ep in range(epochs):
