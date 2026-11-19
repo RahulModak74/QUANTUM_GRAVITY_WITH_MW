@@ -3,3 +3,5 @@
   geodesic step 2000/6000  alive 5739  (69s)
   geodesic step 3000/6000  alive 5606  (109s)
   geodesic step 4000/6000  alive 5359  (152s)
+  geodesic step 5000/6000  alive 4976  (194s)
+  points 1308791;  |H + 1/2| max 5.67e-07, median 2.78e-16;  data wall 220s

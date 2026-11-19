@@ -61,6 +61,8 @@ Rahul Modak's first MW physics attempt (January 2026, formerly the standalone `m
 | Same, Advanced LIGO noise, M = 20–100 M☉ | — | match **0.99993–0.999999** |
 | Cost per template, laptop CPU | NR (SXS): ~128,000 core-hours per run on average | **0.16 s**, flat from 29 to 4,545 cycles |
 
+**v3** ([`KERR_SPACETIME/v3_spin_family/`](KERR_SPACETIME/v3_spin_family/README.md)) is one manifold for the whole Kerr family, spin a = 0 → 0.95. ISCO error is at most 0.12% over 39 spins. Advanced LIGO matches are 0.99995–0.999998 at six spins not used in training. It trains in 72 min on a laptop CPU.
+
 The match compares the manifold's geometry against exact Kerr under the same adiabatic inspiral model. It is not an NR comparison. Details and limits are in [`KERR_SPACETIME/v2_nov2026/README.md`](KERR_SPACETIME/v2_nov2026/README.md).
 
 ![Kerr v2](KERR_SPACETIME/v2_nov2026/results/fig_kerr_v2.png)
@@ -84,7 +86,7 @@ Details are in [`Nov-2026_tests/README.md`](Nov-2026_tests/README.md).
 |---|---|---|
 | [`Nov-2026_tests/`](Nov-2026_tests/) | Improved code (v5), controlled runs, paper v2, LinkedIn post | **Current** |
 | [`EXPLORATORY_PHYSICS/`](EXPLORATORY_PHYSICS/) | Reverse process: Einstein-form field equations read off the manifold; v2 of the three theory PDFs; validation of the `OLD_THEORY_ATTEMPT/` scripts; ν > 1 test | **Current** |
-| [`KERR_SPACETIME/`](KERR_SPACETIME/) | Kerr black hole and gravitational waves from an MW manifold (formerly the `mw-framework` repo, Jan 2026); [`v2_nov2026/`](KERR_SPACETIME/v2_nov2026/README.md) removes the 10,804× amplitude calibration | **Current** (v2) |
+| [`KERR_SPACETIME/`](KERR_SPACETIME/) | Kerr black hole and gravitational waves from an MW manifold (formerly the `mw-framework` repo, Jan 2026); [`v2_nov2026/`](KERR_SPACETIME/v2_nov2026/README.md) removes the 10,804× amplitude calibration; [`v3_spin_family/`](KERR_SPACETIME/v3_spin_family/README.md) covers all spins with one model | **Current** (v2, v3) |
 | `qg_toy_data_generator_v4.py`, `qg_toy_vae_trainer_v4.py` | March 2026 data generator and trainer behind the first paper | Archive |
 | `qg_toy_data_generator.py`, `qg_toy_vae_trainer.py`, `qg_toy_visualizer.py` | Earlier versions and visualiser | Archive |
 | `qg_manifold_visualization_clean.png` | March 2026 figure | Archive |
