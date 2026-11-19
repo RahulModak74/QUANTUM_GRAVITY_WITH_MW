@@ -1,0 +1,72 @@
+
+=== nu0.8_seed0 ===
+    epoch    1  ELBO loss/sample     516.16
+    epoch   25  ELBO loss/sample     159.03
+    epoch   50  ELBO loss/sample     153.10
+    epoch   75  ELBO loss/sample     147.31
+    epoch  100  ELBO loss/sample     140.86
+    epoch  125  ELBO loss/sample     136.91
+    epoch  150  ELBO loss/sample     133.70
+{"einstein_rel": 0.013009811751544476, "hawking": {"slope": -0.9291972436921272, "r2": 0.8301489666763132}, "P1_flag_accuracy": 0.9989166666666667, "P2_flag_mae": 0.01067306101322174, "P3_wormhole_knn_recall": 0.9849340866290018, "knn_scenario_accuracy": 0.6396666666666667, "train_minutes": 15.9}
+
+=== nu0.8_seed1 ===
+    epoch    1  ELBO loss/sample     522.98
+    epoch   25  ELBO loss/sample     163.75
+    epoch   50  ELBO loss/sample     157.27
+    epoch   75  ELBO loss/sample     152.39
+    epoch  100  ELBO loss/sample     148.95
+    epoch  125  ELBO loss/sample     143.96
+    epoch  150  ELBO loss/sample     136.20
+{"einstein_rel": 0.012246537022292614, "hawking": {"slope": -0.8129529376975252, "r2": 0.6743808603927771}, "P1_flag_accuracy": 0.9988833333333333, "P2_flag_mae": 0.010333978570997715, "P3_wormhole_knn_recall": 0.9849340866290018, "knn_scenario_accuracy": 0.628, "train_minutes": 22.5}
+
+=== nu1.5_seed0 ===
+    epoch    1  ELBO loss/sample     516.03
+    epoch   25  ELBO loss/sample     158.76
+    epoch   50  ELBO loss/sample     152.57
+    epoch   75  ELBO loss/sample     146.65
+    epoch  100  ELBO loss/sample     140.39
+    epoch  125  ELBO loss/sample     136.52
+    epoch  150  ELBO loss/sample     132.49
+{"einstein_rel": 0.01176518201828003, "hawking": {"slope": -0.8321079615075576, "r2": 0.6717916229994783}, "P1_flag_accuracy": 0.9990333333333333, "P2_flag_mae": 0.01074413675814867, "P3_wormhole_knn_recall": 0.9830508474576272, "knn_scenario_accuracy": 0.631, "train_minutes": 26.3}
+
+=== nu1.5_seed1 ===
+    epoch    1  ELBO loss/sample     522.84
+    epoch   25  ELBO loss/sample     163.64
+    epoch   50  ELBO loss/sample     156.31
+    epoch   75  ELBO loss/sample     151.87
+    epoch  100  ELBO loss/sample     148.16
+    epoch  125  ELBO loss/sample     144.65
+skip nu0.8_seed0 (done)
+skip nu0.8_seed1 (done)
+skip nu1.5_seed0 (done)
+
+=== nu1.5_seed1 ===
+    epoch    1  ELBO loss/sample     522.84
+    epoch   25  ELBO loss/sample     163.64
+    epoch   50  ELBO loss/sample     156.31
+    epoch   75  ELBO loss/sample     151.87
+    epoch  100  ELBO loss/sample     148.16
+    epoch  125  ELBO loss/sample     144.65
+    epoch  150  ELBO loss/sample     136.01
+{"einstein_rel": 0.01066824421286583, "hawking": {"slope": -0.7489437304422657, "r2": 0.6035876218083595}, "P1_flag_accuracy": 0.999, "P2_flag_mae": 0.010279439389705658, "P3_wormhole_knn_recall": 0.975517890772128, "knn_scenario_accuracy": 0.6323333333333333, "train_minutes": 9.4}
+
+=== nu3.0_seed0 ===
+    epoch    1  ELBO loss/sample     515.95
+    epoch   25  ELBO loss/sample     159.13
+    epoch   50  ELBO loss/sample     152.90
+    epoch   75  ELBO loss/sample     146.47
+    epoch  100  ELBO loss/sample     140.07
+    epoch  125  ELBO loss/sample     136.18
+    epoch  150  ELBO loss/sample     134.00
+{"einstein_rel": 0.008949710056185722, "hawking": {"slope": -0.7103153406157655, "r2": 0.5166166779605941}, "P1_flag_accuracy": 0.9989833333333333, "P2_flag_mae": 0.010189994238317013, "P3_wormhole_knn_recall": 0.9830508474576272, "knn_scenario_accuracy": 0.6423333333333333, "train_minutes": 9.3}
+
+=== nu3.0_seed1 ===
+    epoch    1  ELBO loss/sample     522.75
+    epoch   25  ELBO loss/sample     163.33
+    epoch   50  ELBO loss/sample     156.87
+    epoch   75  ELBO loss/sample     151.29
+    epoch  100  ELBO loss/sample     147.61
+    epoch  125  ELBO loss/sample     142.82
+    epoch  150  ELBO loss/sample     134.60
+{"einstein_rel": 0.01280827634036541, "hawking": {"slope": -0.7659431044878771, "r2": 0.5667584455166217}, "P1_flag_accuracy": 0.99895, "P2_flag_mae": 0.01090471912175417, "P3_wormhole_knn_recall": 0.9792843691148776, "knn_scenario_accuracy": 0.6333333333333333, "train_minutes": 9.3}
+DONE

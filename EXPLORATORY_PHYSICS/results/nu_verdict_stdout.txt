@@ -1,0 +1,43 @@
+run               Einstein  H slope   H R2   P1 acc   P2 mae P3 recall
+nu0.8_seed0          1.30%   -0.929  0.830   0.9989   0.0107    0.9849
+nu0.8_seed1          1.22%   -0.813  0.674   0.9989   0.0103    0.9849
+nu1.5_seed0          1.18%   -0.832  0.672   0.9990   0.0107    0.9831
+nu1.5_seed1          1.07%   -0.749  0.604   0.9990   0.0103    0.9755
+nu3.0_seed0          0.89%   -0.710  0.517   0.9990   0.0102    0.9831
+nu3.0_seed1          1.28%   -0.766  0.567   0.9990   0.0109    0.9793
+{
+ "einstein_cap": 0.019514717627316713,
+ "per_nu": {
+  "1.5": {
+   "gr_preserved": true,
+   "worse_than_nu08_band": {
+    "P1_flag_accuracy": false,
+    "P2_flag_mae": false,
+    "P3_wormhole_knn_recall": true
+   },
+   "planck_degraded": false
+  },
+  "3.0": {
+   "gr_preserved": true,
+   "worse_than_nu08_band": {
+    "P1_flag_accuracy": false,
+    "P2_flag_mae": false,
+    "P3_wormhole_knn_recall": true
+   },
+   "planck_degraded": false
+  }
+ },
+ "gr_preserved": true,
+ "planck_degraded": false,
+ "verdict": "FALSIFIED",
+ "literal_zero_einstein_claim": {
+  "1.5": [
+   0.01176518201828003,
+   0.01066824421286583
+  ],
+  "3.0": [
+   0.008949710056185722,
+   0.01280827634036541
+  ]
+ }
+}

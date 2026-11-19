@@ -13,7 +13,7 @@ Paper: [`paper/mw_joint_manifold_gr_qm_nov2026.pdf`](paper/mw_joint_manifold_gr_
 
 ## The reverse process: manifold → field equations
 
-The usual route goes from PDEs to numerics. Here the manifold comes first: the theory is tested on it, and its PDEs are read off afterwards. [`EXPLORATORY_PHYSICS/`](EXPLORATORY_PHYSICS/) computes the exact geometry of this manifold and writes its field equation in Einstein's form, `G_ab = κ T^MW_ab`. Gravity and quantum sources add in one equation; Gauss holds to 10⁻⁸ and Bianchi to 10⁻¹². The folder also has v2 of the three theory PDFs. Disclaimer: this is not a claim to have solved physics.
+The usual route goes from PDEs to numerics. Here the manifold comes first: the theory is tested on it, and its PDEs are read off afterwards. [`../EXPLORATORY_PHYSICS/`](../EXPLORATORY_PHYSICS/) computes the exact geometry of this manifold and writes its field equation in Einstein's form, `G_ab = κ T^MW_ab`. Gravity and quantum sources add in one equation; Gauss holds to 10⁻⁸ and Bianchi to 10⁻¹². The folder also has v2 of the three theory PDFs. Disclaimer: this is not a claim to have solved physics.
 
 ## Structural position (paper, Table 1)
 

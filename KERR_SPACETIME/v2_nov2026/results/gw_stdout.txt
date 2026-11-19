@@ -1,0 +1,80 @@
+/home/rahul/QUANTUM_GRAVITY_WITH_MW/KERR_SPACETIME/v2_nov2026/../gravitational_wave_inference_STABLE_9.py:138: UserWarning: The .grad attribute of a Tensor that is not a leaf Tensor is being accessed. Its .grad attribute won't be populated during autograd.backward(). If you indeed want the .grad field to be populated for a non-leaf Tensor, use .retain_grad() on the non-leaf Tensor. If you access the non-leaf Tensor by mistake, make sure you access the leaf Tensor instead. See github.com/pytorch/pytorch/pull/30531 for more information. (Triggered internally at /__w/pytorch/pytorch/build/aten/src/ATen/core/TensorBody.h:493.)
+  if z_A.grad is not None:
+/home/rahul/QUANTUM_GRAVITY_WITH_MW/KERR_SPACETIME/v2_nov2026/../gravitational_wave_inference_STABLE_9.py:144: UserWarning: The .grad attribute of a Tensor that is not a leaf Tensor is being accessed. Its .grad attribute won't be populated during autograd.backward(). If you indeed want the .grad field to be populated for a non-leaf Tensor, use .retain_grad() on the non-leaf Tensor. If you access the non-leaf Tensor by mistake, make sure you access the leaf Tensor instead. See github.com/pytorch/pytorch/pull/30531 for more information. (Triggered internally at /__w/pytorch/pytorch/build/aten/src/ATen/core/TensorBody.h:493.)
+  if z_B.grad is not None:
+v1 diagnosis: {
+ "orbit_r": 3.481324562642831,
+ "v1_match_plus": 0.9850651971917131,
+ "v1_match_plus_with_VAE_factor_removed": 0.9850651971917131,
+ "sqrt_abs_van_vleck_median": 6.388928228768004e-07,
+ "v1_target_amplitude": 0.00013213844372211915,
+ "quadrupole_amplitude_4mu_r2_Om2_over_D": 0.0008863527303902201,
+ "v1_roundtrip_r_on_orbit": {
+  "true": 3.481324562642831,
+  "reconstructed_min": 3.6477575302124023,
+  "reconstructed_max": 12.356344223022461,
+  "median_abs_err": 7.742981067087394
+ }
+}
+geometry: {
+ "isco_exact": 2.320883041761887,
+ "isco_manifold": 2.32235,
+ "isco_rel_err": 0.00063206900637236,
+ "omega_rel_err_max_outside_isco": 0.0007406809857379848,
+ "omega_rel_err_median": 0.00012337526655004094,
+ "energy_rel_err_max_outside_isco": 3.398731590686932e-05,
+ "omega_phi_scatter_max": 0.0013112493515354399,
+ "table": {
+  "r=2.5": {
+   "Omega_exact": 0.2060646017691849,
+   "Omega_manifold": 0.2063400719444986,
+   "E_exact": 0.8463300697960876,
+   "E_manifold": 0.846274796578086
+  },
+  "r=3.48": {
+   "Omega_exact": 0.13528402396132033,
+   "Omega_manifold": 0.1350524840669577,
+   "E_exact": 0.87516518402671,
+   "E_manifold": 0.8752938880218416
+  },
+  "r=5.0": {
+   "Omega_exact": 0.08277912784844954,
+   "Omega_manifold": 0.08281925548742104,
+   "E_exact": 0.9085459776738222,
+   "E_manifold": 0.908517153216426
+  },
+  "r=8.0": {
+   "Omega_exact": 0.04250360335290111,
+   "Omega_manifold": 0.04251260861395607,
+   "E_exact": 0.9409087099329637,
+   "E_manifold": 0.940900481426896
+  },
+  "r=12.0": {
+   "Omega_exact": 0.02354646528850506,
+   "Omega_manifold": 0.023549715390080335,
+   "E_exact": 0.9599285236406008,
+   "E_manifold": 0.9599248943176899
+  }
+ }
+}
+amplitude: {'r': np.float64(3.481324562642831), 'h0_numerical_manifold': 0.0008857662755894563, 'h0_analytic_manifold_4mu_r2_Om2_over_D': np.float64(0.000885769189644387), 'h0_analytic_exact_kerr': np.float64(0.0008863527303902201), 'calibration_factor_applied': 1.0, 'ratio_manifold_to_exact': np.float64(0.999338350545267)}
+inspiral eta=0.1: {
+ "match_manifold_vs_exact_quad_flux": 0.9997214004063333,
+ "gw_cycles_exact_quad": 47.46566578332388,
+ "gw_cycles_manifold_quad": 47.45425009615246,
+ "amplitude_ratio_end_quad": 1.0164478324738928,
+ "match_manifold_vs_exact_pn_flux": 0.9998617585516889,
+ "gw_cycles_exact_pn": 53.412928745211595,
+ "gw_cycles_manifold_pn": 53.41434837990093,
+ "amplitude_ratio_end_pn": 0.9926774086641575
+}
+inspiral eta=0.01: {
+ "match_manifold_vs_exact_quad_flux": 0.9997971832498483,
+ "gw_cycles_exact_quad": 474.6566578332428,
+ "gw_cycles_manifold_quad": 474.54250096153527,
+ "amplitude_ratio_end_quad": 0.9886886234729185,
+ "match_manifold_vs_exact_pn_flux": 0.9997398067700294,
+ "gw_cycles_exact_pn": 534.1292874521148,
+ "gw_cycles_manifold_pn": 534.1434837989995,
+ "amplitude_ratio_end_pn": 0.9986440466666288
+}

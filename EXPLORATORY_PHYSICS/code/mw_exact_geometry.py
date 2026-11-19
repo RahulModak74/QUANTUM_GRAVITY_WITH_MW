@@ -37,14 +37,14 @@ import numpy as np
 import torch
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, '..', '..', 'code'))
+sys.path.insert(0, os.path.join(HERE, '..', '..', 'Nov-2026_tests', 'code'))
 sys.path.insert(0, HERE)
 from qg_toy_vae_trainer_v5 import QGPhysicsVAE                                       # noqa: E402
 from qg_toy_data_generator_v5 import QGJointGenerator, QGParams, COLS, SCENARIOS     # noqa: E402
 from mw_taylor import decoder_jet                                                    # noqa: E402
 
 torch.set_default_dtype(torch.float64)
-CK = os.path.join(HERE, '..', '..', 'results', 'checkpoints')
+CK = os.path.join(HERE, '..', '..', 'Nov-2026_tests', 'results', 'checkpoints')
 OUT = os.path.join(HERE, '..', 'results'); os.makedirs(OUT, exist_ok=True)
 
 GROUPS = {

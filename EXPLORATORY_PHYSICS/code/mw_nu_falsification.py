@@ -13,7 +13,7 @@ import numpy as np
 import torch
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-V5 = os.path.join(HERE, '..', '..', 'code'); sys.path.insert(0, V5)
+V5 = os.path.join(HERE, '..', '..', 'Nov-2026_tests', 'code'); sys.path.insert(0, V5)
 from qg_toy_vae_trainer_v5 import train                                          # noqa: E402
 from qg_toy_data_generator_v5 import QGJointGenerator, QGParams, SCENARIOS       # noqa: E402
 

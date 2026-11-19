@@ -1,4 +1,24 @@
 # Modak-Walawalkar (M-W) Framework
+
+> ## Nov 2026 update: amplitude issue resolved, see [`v2_nov2026/`](v2_nov2026/README.md)
+>
+> This folder was the standalone repo `mw-framework` (Jan 2026), Rahul Modak's first attempt at deriving
+> Kerr spacetime and gravitational waves from a learned manifold. It now lives inside
+> [QUANTUM_GRAVITY_WITH_MW](../README.md), with its full git history kept. The original text below is unchanged.
+>
+> **v2 removes the 10,804× amplitude calibration.** Exact Kerr geodesics plus an MW physics prior on the metric
+> give a manifold whose geometry reproduces Kerr (spin a = 0.9):
+> - **ISCO:** within 0.06%.
+> - **Orbital frequency:** within 0.074%.
+> - **Orbital energy:** within 0.0034%.
+> - **GW amplitude:** within 0.07%, with a calibration factor of 1.0.
+> - **Inspiral match against exact-Kerr geometry:** 0.9997 to ISCO under the same waveform model (474 cycles at η = 0.01).
+>
+> v2 also measured why v1 needed the factor. In v1, removing the VAE term leaves the waveform match unchanged, so the
+> waveform was not driven by the learned geometry. The data, the model and the waveform step are all rebuilt.
+> Details and limits are in [`v2_nov2026/README.md`](v2_nov2026/README.md).
+> The foundational LinkedIn post is archived verbatim in [`ARTICLES/`](ARTICLES/339_years_Newton_to_MW_LinkedIn_post.md).
+
 ## Physics-Constrained Geometric Learning for Computational Physics - THINK MANIFOLDS
 ## Pl see file MW_Framework_Quantum_Vision.pdf to understand end to end vision of MW framework. Doing Quantum computing on Classical Hardware is end goal.
 
@@ -51,6 +71,7 @@ The M-W Framework demonstrates that **any physical conservation law can be encod
 | **Cybersecurity** | 57D | Riemannian | AUC: 0.89, real-time detection | ✅ Enterprise validation |
 | **Kerr Spacetime** | 4D | Lorentzian | Frame dragging emerges, Van Vleck computable | ✅ Proof-of-concept |
 | **Gravitational Waves** | 4D | Lorentzian | 98.5% PN match, 6.9M× speedup | ⚠️ Validation ongoing (see below) |
+| **Gravitational Waves v2 (Nov 2026)** | 4D | Lorentzian | 0.9997 match vs exact-Kerr geometry, **no calibration** | ✅ [v2_nov2026](v2_nov2026/README.md) |
 
 ---
 
@@ -97,6 +118,8 @@ python3 batch_generate_original.py --model kerr_vae.pth --n-templates 10
 ## ⚠️ Known Limitations & Validation Status
 
 ### Gravitational Wave Amplitude Calibration
+
+> **Resolved in Nov 2026 ([v2_nov2026](v2_nov2026/README.md)).** The text below is kept as the January 2026 record.
 
 **Current Issue:** The raw gravitational wave amplitude from the learned geometry requires post-hoc calibration:
 

@@ -20,7 +20,7 @@ A PDE solver also uses geometry, but only cell by cell: it evaluates local tange
 
 ## What was done
 
-1. **Validated the three March/January theory PDFs and the four `THEORY/` scripts** by re-running the scripts, unchanged, on the Nov-2026 v5 manifold (`legacy_rerun/`).
+1. **Validated the three March/January theory PDFs and the four `OLD_THEORY_ATTEMPT/` scripts (formerly `THEORY/`)** by re-running the scripts, unchanged, on the Nov-2026 v5 manifold (`legacy_rerun/`).
 2. **Rebuilt the extraction exactly** (`code/`): the metric, connection, second fundamental form, Riemann and Ricci tensors and the Einstein tensor of the trained manifold, with exact derivatives, at 240 unseen test states for each model.
 3. **Wrote new versions of the three PDFs** (`papers/`), with every number generated from the runs.
 
@@ -63,7 +63,21 @@ The defining signature, playing the role Mercury's perihelion played for GR, wou
 - **Prior ablation:** Hawking R² 0.83 with M-W priors vs 0.42 without.
 - **Extraction check:** Gauss (1.2×10⁻⁸) and Bianchi (7.6×10⁻¹³) identities hold with exact geometry. Both fail for the v1 extraction, whose Ricci trace is identically 0.
 
-**Open, runnable test:** replace the Student-t(ν = 0.8) measurement prior with ν > 1 and retrain on identical data. Prediction: the GR sector survives and the Planck/topology structure degrades. Not yet run on v5 (about 12 min per run on a laptop GPU).
+**ν > 1 test (run 2026-11-19, criteria pre-registered in [`results/nu_test_PREREGISTRATION.md`](results/nu_test_PREREGISTRATION.md) before training).**
+The March 2026 prediction was that replacing the Student-t(ν = 0.8) prior with ν > 1 keeps GR but destroys the Planck/topology structure. On v5 we retrained with identical data, ν ∈ {0.8, 1.5, 3.0} × 2 seeds ([`results/nu_test.json`](results/nu_test.json), [`results/nu_test_verdict.json`](results/nu_test_verdict.json)):
+
+| run | Einstein | Hawking R² | P1 flag acc | P2 flag MAE | P3 wormhole recall |
+|---|---|---|---|---|---|
+| ν = 0.8 (seeds 0, 1) | 1.30%, 1.22% | 0.83, 0.67 | 0.9989, 0.9989 | 0.0107, 0.0103 | 0.985, 0.985 |
+| ν = 1.5 | 1.18%, 1.07% | 0.67, 0.60 | 0.9990, 0.9990 | 0.0107, 0.0103 | 0.983, 0.976 |
+| ν = 3.0 | 0.89%, 1.28% | 0.52, 0.57 | 0.9990, 0.9990 | 0.0102, 0.0109 | 0.983, 0.979 |
+
+- **GR preserved:** yes.
+- **Planck structure degraded:** no. Only wormhole recall falls below the ν = 0.8 band, and the rule needs two of three measures.
+- **Verdict under the pre-registered rule: the "destroys Planck structure" prediction is falsified on this toy setup.**
+- **The March claim of a "0% Einstein residual" for ν > 1 is not reproduced.** ν > 1 gives 0.9–1.3%.
+
+**What this does and does not say about ν = 0.8.** The test does not show that ν = 0.8 is worse. Every ν performs comparably on the Planck measures, so this synthetic data set does not separate the values. ν = 0.8 remains the modelling choice it was stated to be. One observation outside the pre-registered rule, so a hint only: the Hawking fit is weaker for ν > 1. Both ν = 3.0 seeds (R² 0.52, 0.57) fall below the ν = 0.8 band (0.67–0.83), and ν = 1.5 sits at its lower edge.
 
 ## Validation of the earlier PDFs and scripts
 
@@ -82,13 +96,13 @@ The defining signature, playing the role Mercury's perihelion played for GR, wou
 
 ## New versions of the three PDFs
 
-| v1 (in `THEORY/`) | v2 (here) |
+| v1 (in `OLD_THEORY_ATTEMPT/`) | v2 (here) |
 |---|---|
 | `MW_Field_Equations.pdf` | [`papers/MW_Field_Equations_v2.pdf`](papers/MW_Field_Equations_v2.pdf): Einstein-form equations read off the manifold, all checks, corrections to v1 |
 | `mw_quantum_gravity.pdf` | [`papers/mw_quantum_gravity_v2.pdf`](papers/mw_quantum_gravity_v2.pdf): Student-t(ν=0.8) prior paper with the v5 controlled results and the field equations |
 | `MW_Theory_Quantum_Mechanics_As_Geometry.pdf` | [`papers/MW_Theory_Quantum_Mechanics_As_Geometry_v2.pdf`](papers/MW_Theory_Quantum_Mechanics_As_Geometry_v2.pdf): the equivalence principle evaluated on the manifold (one metric, additive sources, physical geodesics, pure-gauge phase) |
 
-The v1 files in `THEORY/` are left unchanged.
+The v1 files in [`OLD_THEORY_ATTEMPT/`](../OLD_THEORY_ATTEMPT/) are left unchanged.
 
 ## How the geometry is computed
 
@@ -101,17 +115,17 @@ The decoder `f: U ⊂ ℝ¹⁸ → ℝ³⁰` (active latent axes → standardise
 ## Reproduce (laptop CPU, about 15 minutes)
 
 ```bash
-cd Nov-2026_tests/EXPLORATORY_PHYSICS/code
+cd EXPLORATORY_PHYSICS/code
 python3 mw_exact_geometry.py      # -> ../results/exact_geometry.json, _log.txt, _points.npz, geodesic_path_*.npz
 python3 mw_berry_check.py         # -> ../results/berry_check.json
 python3 mw_uncertainty_check.py   # -> ../results/uncertainty_check.json (Δx·Δt bound, β_eff)
 python3 mw_exact_figures.py       # -> ../results/fig_exploratory.png, ../papers/fig_exploratory.pdf
 python3 mw_paper_numbers.py       # -> ../papers/numbers.tex
 cd ../papers && for f in *.tex; do pdflatex "$f"; done
-../legacy_rerun/run_legacy.sh     # optional: the unchanged THEORY scripts on the v5 manifold
+../legacy_rerun/run_legacy.sh     # optional: the unchanged OLD_THEORY_ATTEMPT scripts on the v5 manifold
 ```
 
-Inputs are the Nov-2026 checkpoints in `../results/checkpoints/`. Needs torch, pyro-ppl, numpy and matplotlib.
+Inputs are the Nov-2026 checkpoints in `../Nov-2026_tests/results/checkpoints/`. Needs torch, pyro-ppl, numpy and matplotlib.
 
 ## Scope, again
 
