@@ -1,0 +1,65 @@
+{
+ "cpu": "12th Gen Intel(R) Core(TM) i5-12450H",
+ "logical_cpus": 12,
+ "torch": "2.13.0+cu130",
+ "gpu_used": false,
+ "model_load_s": 0.011911280000276747,
+ "geometry_extraction_s_1thread": 2.482033235999552,
+ "geometry_extraction_s_6thread": 0.3025355900008435,
+ "manifold_queries_per_s": 121053.01030922278,
+ "templates": {
+  "eta_0.05-0.25": {
+   "eta_range": [
+    0.05,
+    0.25
+   ],
+   "n": 200,
+   "ms_median": 162.55377500056056,
+   "ms_p95": 279.1853350001474,
+   "templates_per_min": 369.1086226683637,
+   "gw_cycles_median": 29.258861017845163,
+   "gw_cycles_max": 93.8801371065451,
+   "minutes_for_25000": 67.7307395835669
+  },
+  "eta_0.01-0.05": {
+   "eta_range": [
+    0.01,
+    0.05
+   ],
+   "n": 200,
+   "ms_median": 154.7206080003889,
+   "ms_p95": 245.7979542507018,
+   "templates_per_min": 387.7957873578754,
+   "gw_cycles_median": 150.79048271138987,
+   "gw_cycles_max": 473.97242568410246,
+   "minutes_for_25000": 64.46692000016203
+  },
+  "eta_0.001-0.01": {
+   "eta_range": [
+    0.001,
+    0.01
+   ],
+   "n": 50,
+   "ms_median": 176.04715449942887,
+   "ms_p95": 275.63693939973746,
+   "templates_per_min": 340.81777788799565,
+   "gw_cycles_median": 761.4822641269507,
+   "gw_cycles_max": 4545.013829691082,
+   "minutes_for_25000": 73.35298104142869
+  }
+ },
+ "representation": {
+  "training_points": 674651,
+  "floats_per_point_phase_space": 8,
+  "training_set_floats": 5397208,
+  "model_parameters": 52372,
+  "compression_training_set_to_model": 103.05522034675018,
+  "model_file_bytes": 426037,
+  "latent_dim": 8
+ },
+ "training": {
+  "steps": 80000,
+  "wall_s_from_log": 3689,
+  "device": "CPU, 6 threads"
+ }
+}
