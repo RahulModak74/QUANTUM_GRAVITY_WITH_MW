@@ -1,4 +1,4 @@
-> **Note (Nov 2026):** these documents set out the MW theory and are kept as written. The current code, results and paper (v2) are in [`Nov-2026_tests/`](../Nov-2026_tests/).
+> **Note (Nov 2026):** these documents set out the MW theory and are kept as written. The current code, results and paper (v2) are in [`Nov-2026_tests/`](../../Nov-2026_tests/).
 
 
 

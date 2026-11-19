@@ -20,7 +20,7 @@ A PDE solver also uses geometry, but only cell by cell: it evaluates local tange
 
 ## What was done
 
-1. **Validated the three March/January theory PDFs and the four `OLD_THEORY_ATTEMPT/` scripts (formerly `THEORY/`)** by re-running the scripts, unchanged, on the Nov-2026 v5 manifold (`legacy_rerun/`).
+1. **Validated the three March/January theory PDFs and the four `ARCHIVES/OLD_THEORY_ATTEMPT/` scripts (formerly `THEORY/`)** by re-running the scripts, unchanged, on the Nov-2026 v5 manifold (`legacy_rerun/`).
 2. **Rebuilt the extraction exactly** (`code/`): the metric, connection, second fundamental form, Riemann and Ricci tensors and the Einstein tensor of the trained manifold, with exact derivatives, at 240 unseen test states for each model.
 3. **Wrote new versions of the three PDFs** (`papers/`), with every number generated from the runs.
 
@@ -42,7 +42,7 @@ Full numbers for both models (with and without M-W priors) are in [`results/exac
 
 ## Falsifiable predictions
 
-The framework makes a prediction that standard quantum mechanics does not (from `PDF_PAPERS_THEORY/Appendix_A_Falsifiable_Predictions.pdf`). Standard QM has ΔxΔp ≥ ħ/2 and ΔEΔt ≥ ħ/2, but **no lower bound on joint position–time localisation**. M-W predicts
+The framework makes a prediction that standard quantum mechanics does not (from `ARCHIVES/PDF_PAPERS_THEORY/Appendix_A_Falsifiable_Predictions.pdf`). Standard QM has ΔxΔp ≥ ħ/2 and ΔEΔt ≥ ħ/2, but **no lower bound on joint position–time localisation**. M-W predicts
 
 **Δx · Δt ≥ ℓ_P² (1 + β R ℓ_P²)**,  with ℓ_P the Planck length and β an order-unity geometric coupling.
 
@@ -96,13 +96,13 @@ The March 2026 prediction was that replacing the Student-t(ν = 0.8) prior with 
 
 ## New versions of the three PDFs
 
-| v1 (in `OLD_THEORY_ATTEMPT/`) | v2 (here) |
+| v1 (in `ARCHIVES/OLD_THEORY_ATTEMPT/`) | v2 (here) |
 |---|---|
 | `MW_Field_Equations.pdf` | [`papers/MW_Field_Equations_v2.pdf`](papers/MW_Field_Equations_v2.pdf): Einstein-form equations read off the manifold, all checks, corrections to v1 |
 | `mw_quantum_gravity.pdf` | [`papers/mw_quantum_gravity_v2.pdf`](papers/mw_quantum_gravity_v2.pdf): Student-t(ν=0.8) prior paper with the v5 controlled results and the field equations |
 | `MW_Theory_Quantum_Mechanics_As_Geometry.pdf` | [`papers/MW_Theory_Quantum_Mechanics_As_Geometry_v2.pdf`](papers/MW_Theory_Quantum_Mechanics_As_Geometry_v2.pdf): the equivalence principle evaluated on the manifold (one metric, additive sources, physical geodesics, pure-gauge phase) |
 
-The v1 files in [`OLD_THEORY_ATTEMPT/`](../OLD_THEORY_ATTEMPT/) are left unchanged.
+The v1 files in [`OLD_THEORY_ATTEMPT/`](../../ARCHIVES/OLD_THEORY_ATTEMPT/) are left unchanged.
 
 ## How the geometry is computed
 
@@ -115,7 +115,7 @@ The decoder `f: U ⊂ ℝ¹⁸ → ℝ³⁰` (active latent axes → standardise
 ## Reproduce (laptop CPU, about 15 minutes)
 
 ```bash
-cd EXPLORATORY_PHYSICS/code
+cd Nov-2026_tests/EXPLORATORY_PHYSICS/code
 python3 mw_exact_geometry.py      # -> ../results/exact_geometry.json, _log.txt, _points.npz, geodesic_path_*.npz
 python3 mw_berry_check.py         # -> ../results/berry_check.json
 python3 mw_uncertainty_check.py   # -> ../results/uncertainty_check.json (Δx·Δt bound, β_eff)
@@ -125,7 +125,7 @@ cd ../papers && for f in *.tex; do pdflatex "$f"; done
 ../legacy_rerun/run_legacy.sh     # optional: the unchanged OLD_THEORY_ATTEMPT scripts on the v5 manifold
 ```
 
-Inputs are the Nov-2026 checkpoints in `../Nov-2026_tests/results/checkpoints/`. Needs torch, pyro-ppl, numpy and matplotlib.
+Inputs are the Nov-2026 checkpoints in `../results/checkpoints/`. Needs torch, pyro-ppl, numpy and matplotlib.
 
 ## Scope, again
 

@@ -1,10 +1,10 @@
 # OLD_THEORY_ATTEMPT (formerly `THEORY/`)
 
-*March 2026 first attempt, kept unchanged. The corrected v2 is in [`../EXPLORATORY_PHYSICS/`](../EXPLORATORY_PHYSICS/).*
+*March 2026 first attempt, kept unchanged. The corrected v2 is in [`../../Nov-2026_tests/EXPLORATORY_PHYSICS/`](../../Nov-2026_tests/EXPLORATORY_PHYSICS/).*
 
-> **Note (Nov 2026):** this file is from the March 2026 version and is kept for reference. The current code, results and paper (v2) are in [`Nov-2026_tests/`](../Nov-2026_tests/).
+> **Note (Nov 2026):** this file is from the March 2026 version and is kept for reference. The current code, results and paper (v2) are in [`Nov-2026_tests/`](../../Nov-2026_tests/).
 
-> **Reverse process and v2 (Nov 2026):** the scripts here were re-run unchanged on the Nov-2026 manifold and validated in [`../EXPLORATORY_PHYSICS/`](../EXPLORATORY_PHYSICS/). The metric `g = JᵀJ` is correct. The "Ricci scalar" (R = 2.88×10⁷ in the v1 PDFs) is a metric-distortion proxy, not a curvature, and the finite-difference Christoffel/Ricci steps do not measure curvature (see that README). The corrected, exact extraction gives field equations in Einstein's form, `G_ab = κ T^MW_ab`, verified to 10⁻⁸. New versions of the three PDFs in this folder are in [`../EXPLORATORY_PHYSICS/papers/`](../EXPLORATORY_PHYSICS/papers/). The files here are kept unchanged for reference.
+> **Reverse process and v2 (Nov 2026):** the scripts here were re-run unchanged on the Nov-2026 manifold and validated in [`../../Nov-2026_tests/EXPLORATORY_PHYSICS/`](../../Nov-2026_tests/EXPLORATORY_PHYSICS/). The metric `g = JᵀJ` is correct. The "Ricci scalar" (R = 2.88×10⁷ in the v1 PDFs) is a metric-distortion proxy, not a curvature, and the finite-difference Christoffel/Ricci steps do not measure curvature (see that README). The corrected, exact extraction gives field equations in Einstein's form, `G_ab = κ T^MW_ab`, verified to 10⁻⁸. New versions of the three PDFs in this folder are in [`../../Nov-2026_tests/EXPLORATORY_PHYSICS/papers/`](../../Nov-2026_tests/EXPLORATORY_PHYSICS/papers/). The files here are kept unchanged for reference.
 
 # Quantum Gravity Manifold Extraction Toolkit
 

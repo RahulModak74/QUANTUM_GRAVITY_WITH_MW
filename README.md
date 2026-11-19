@@ -46,9 +46,9 @@ The MW framework abandons solving. Instead, it uses the governing equations as B
 
 ### The reverse process: manifold → field equations
 
-The standard route goes from PDEs to numerics. MW also runs **in reverse**: the trained manifold is where the theory is tested, and only then is it converted to PDEs and papers. **[`EXPLORATORY_PHYSICS/`](EXPLORATORY_PHYSICS/)** reads the field equations off the trained 20-D manifold with exact derivatives and writes them in Einstein's form, `G_ab = κ T^MW_ab`. Gravity and quantum sources add in one equation, the Gauss identity holds to 10⁻⁸, and conservation `∇ᵃT_ab = 0` holds to 10⁻¹². The same folder validates the earlier theory scripts and has v2 of the three theory PDFs. The falsifiable prediction, a position–time bound Δx·Δt ≥ ℓ_P²(1 + βRℓ_P²) testable at three levels (existence, Planck scale, curvature dependence), is restated there together with what the manifold can and cannot test. The March 2026 prediction that a Student-t prior with ν > 1 would destroy the Planck/topology structure was tested under pre-registered criteria and **falsified on this toy setup**: all ν values perform comparably, and ν = 0.8 remains the modelling choice. *Disclaimer: this shows what the PDEs of our learned manifold would be. It is not a claim to have solved physics.*
+The standard route goes from PDEs to numerics. MW also runs **in reverse**: the trained manifold is where the theory is tested, and only then is it converted to PDEs and papers. **[`Nov-2026_tests/EXPLORATORY_PHYSICS/`](Nov-2026_tests/EXPLORATORY_PHYSICS/)** reads the field equations off the trained 20-D manifold with exact derivatives and writes them in Einstein's form, `G_ab = κ T^MW_ab`. Gravity and quantum sources add in one equation, the Gauss identity holds to 10⁻⁸, and conservation `∇ᵃT_ab = 0` holds to 10⁻¹². The same folder validates the earlier theory scripts and has v2 of the three theory PDFs. The falsifiable prediction, a position–time bound Δx·Δt ≥ ℓ_P²(1 + βRℓ_P²) testable at three levels (existence, Planck scale, curvature dependence), is restated there together with what the manifold can and cannot test. The March 2026 prediction that a Student-t prior with ν > 1 would destroy the Planck/topology structure was tested under pre-registered criteria and **falsified on this toy setup**: all ν values perform comparably, and ν = 0.8 remains the modelling choice. *Disclaimer: this shows what the PDEs of our learned manifold would be. It is not a claim to have solved physics.*
 
-### Kerr spacetime and gravitational waves: [`KERR_SPACETIME/`](KERR_SPACETIME/)
+### Kerr spacetime and gravitational waves: [`Nov-2026_tests/KERR_SPACETIME/`](Nov-2026_tests/KERR_SPACETIME/)
 
 Rahul Modak's first MW physics attempt (January 2026, formerly the standalone `mw-framework` repo) learned Kerr black-hole geometry and gravitational waves from a manifold. It is now part of this repo. **v2 (Nov 2026)** retrains it on exact Kerr geodesics with an MW physics prior on the metric, and **removes the 10,804× amplitude calibration** v1 needed:
 
@@ -61,11 +61,11 @@ Rahul Modak's first MW physics attempt (January 2026, formerly the standalone `m
 | Same, Advanced LIGO noise, M = 20–100 M☉ | — | match **0.99993–0.999999** |
 | Cost per template, laptop CPU | NR (SXS): ~128,000 core-hours per run on average | **0.16 s**, flat from 29 to 4,545 cycles |
 
-**v3** ([`KERR_SPACETIME/v3_spin_family/`](KERR_SPACETIME/v3_spin_family/README.md)) is one manifold for the whole Kerr family, spin a = 0 → 0.95. ISCO error is at most 0.12% over 39 spins. Advanced LIGO matches are 0.99995–0.999998 at six spins not used in training. It trains in 72 min on a laptop CPU.
+**v3** ([`Nov-2026_tests/KERR_SPACETIME/v3_spin_family/`](Nov-2026_tests/KERR_SPACETIME/v3_spin_family/README.md)) is one manifold for the whole Kerr family, spin a = 0 → 0.95. ISCO error is at most 0.12% over 39 spins. Advanced LIGO matches are 0.99995–0.999998 at six spins not used in training. It trains in 72 min on a laptop CPU.
 
-The match compares the manifold's geometry against exact Kerr under the same adiabatic inspiral model. It is not an NR comparison. Details and limits are in [`KERR_SPACETIME/v2_nov2026/README.md`](KERR_SPACETIME/v2_nov2026/README.md).
+The match compares the manifold's geometry against exact Kerr under the same adiabatic inspiral model. It is not an NR comparison. Details and limits are in [`Nov-2026_tests/KERR_SPACETIME/v2_nov2026/README.md`](Nov-2026_tests/KERR_SPACETIME/v2_nov2026/README.md).
 
-![Kerr v2](KERR_SPACETIME/v2_nov2026/results/fig_kerr_v2.png)
+![Kerr v2](Nov-2026_tests/KERR_SPACETIME/v2_nov2026/results/fig_kerr_v2.png)
 
 ### Run it
 
@@ -85,14 +85,14 @@ Details are in [`Nov-2026_tests/README.md`](Nov-2026_tests/README.md).
 | Path | What it is | Status |
 |---|---|---|
 | [`Nov-2026_tests/`](Nov-2026_tests/) | Improved code (v5), controlled runs, paper v2, LinkedIn post | **Current** |
-| [`EXPLORATORY_PHYSICS/`](EXPLORATORY_PHYSICS/) | Reverse process: Einstein-form field equations read off the manifold; v2 of the three theory PDFs; validation of the `OLD_THEORY_ATTEMPT/` scripts; ν > 1 test | **Current** |
-| [`KERR_SPACETIME/`](KERR_SPACETIME/) | Kerr black hole and gravitational waves from an MW manifold (formerly the `mw-framework` repo, Jan 2026); [`v2_nov2026/`](KERR_SPACETIME/v2_nov2026/README.md) removes the 10,804× amplitude calibration; [`v3_spin_family/`](KERR_SPACETIME/v3_spin_family/README.md) covers all spins with one model | **Current** (v2, v3) |
+| [`Nov-2026_tests/EXPLORATORY_PHYSICS/`](Nov-2026_tests/EXPLORATORY_PHYSICS/) | Reverse process: Einstein-form field equations read off the manifold; v2 of the three theory PDFs; validation of the `ARCHIVES/OLD_THEORY_ATTEMPT/` scripts; ν > 1 test | **Current** |
+| [`Nov-2026_tests/KERR_SPACETIME/`](Nov-2026_tests/KERR_SPACETIME/) | Kerr black hole and gravitational waves from an MW manifold (formerly the `mw-framework` repo, Jan 2026); [`v2_nov2026/`](Nov-2026_tests/KERR_SPACETIME/v2_nov2026/README.md) removes the 10,804× amplitude calibration; [`v3_spin_family/`](Nov-2026_tests/KERR_SPACETIME/v3_spin_family/README.md) covers all spins with one model | **Current** (v2, v3) |
 | `qg_toy_data_generator_v4.py`, `qg_toy_vae_trainer_v4.py` | March 2026 data generator and trainer behind the first paper | Archive |
 | `qg_toy_data_generator.py`, `qg_toy_vae_trainer.py`, `qg_toy_visualizer.py` | Earlier versions and visualiser | Archive |
 | `qg_manifold_visualization_clean.png` | March 2026 figure | Archive |
 | `create_mercury_orbital_data.py` | Mercury orbital data generator | Archive |
-| [`OLD_THEORY_ATTEMPT/`](OLD_THEORY_ATTEMPT/) | Formerly `THEORY/`. March 2026 paper (`mw_quantum_gravity.pdf`), manifold and PDE extraction tools, theory notes (v2 of the three PDFs and corrected extraction: `EXPLORATORY_PHYSICS/`) | Archive |
-| [`PDF_PAPERS_THEORY/`](PDF_PAPERS_THEORY/) | MW theory documents: field equations, QM as geometry, formal theory, differential-geometry primer | Theory |
+| [`ARCHIVES/OLD_THEORY_ATTEMPT/`](ARCHIVES/OLD_THEORY_ATTEMPT/) | Formerly `THEORY/`. March 2026 paper (`mw_quantum_gravity.pdf`), manifold and PDE extraction tools, theory notes (v2 of the three PDFs and corrected extraction: `Nov-2026_tests/EXPLORATORY_PHYSICS/`) | Archive |
+| [`ARCHIVES/PDF_PAPERS_THEORY/`](ARCHIVES/PDF_PAPERS_THEORY/) | MW theory documents: field equations, QM as geometry, formal theory, differential-geometry primer | Theory |
 | `MW_Framework_Quantum_Vision.pdf` | MW framework vision document | Theory |
 | `STATUS_OF_QR_GM_DATA.md` | March 2026 response to reviewer objections | Archive |
 | `LINKEDIN_ARTICLE.md` | March 2026 article | Archive |
