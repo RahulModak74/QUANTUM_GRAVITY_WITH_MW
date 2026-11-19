@@ -1,0 +1,5 @@
+  geodesic step 0/6000  alive 6000  (2s)
+  geodesic step 1000/6000  alive 5858  (43s)
+  geodesic step 2000/6000  alive 5739  (69s)
+  geodesic step 3000/6000  alive 5606  (109s)
+  geodesic step 4000/6000  alive 5359  (152s)

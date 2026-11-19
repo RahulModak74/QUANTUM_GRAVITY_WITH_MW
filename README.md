@@ -58,6 +58,8 @@ Rahul Modak's first MW physics attempt (January 2026, formerly the standalone `m
 | Orbital frequency, ISCO → 12 M | BPT | max error 0.074% |
 | GW amplitude at 1.5 r_ISCO | 8.864×10⁻⁴ | 8.858×10⁻⁴, **calibration factor 1.0** |
 | Inspiral to ISCO, η = 0.01 (475 cycles) | — | match **0.9998** |
+| Same, Advanced LIGO noise, M = 20–100 M☉ | — | match **0.99993–0.999999** |
+| Cost per template, laptop CPU | NR (SXS): ~128,000 core-hours per run on average | **0.16 s**, flat from 29 to 4,545 cycles |
 
 The match compares the manifold's geometry against exact Kerr under the same adiabatic inspiral model. It is not an NR comparison. Details and limits are in [`KERR_SPACETIME/v2_nov2026/README.md`](KERR_SPACETIME/v2_nov2026/README.md).
 

@@ -21,6 +21,11 @@ The match is the normalised overlap, maximised over time and phase shift, with a
 waveform built from the manifold's geometry against the waveform built from exact Kerr, using the same
 inspiral model in both cases.
 
+**Advanced LIGO noise, physical units** (`kerr_v2_ligo.py`, PSD from LALSuite): match 0.99993–0.999999 for
+M = 20–100 M☉, η = 0.1 and 0.01 (`results/ligo_match.json`). **Cost** (`kerr_v2_benchmark.py`): 0.16 s per template on a
+laptop CPU, flat from 29 to 4,545 GW cycles (`results/benchmark.json`). The full write-up, with the NR and LALSuite
+comparisons, is in the [KERR_SPACETIME README](../README.md).
+
 Held-out round-trip of the manifold over 20,000 unseen spacetime points: median |Δr| = 0.0034 M,
 |Δθ| = 1.8×10⁻⁴ rad, |Δφ| = 2.7×10⁻⁴ rad.
 
