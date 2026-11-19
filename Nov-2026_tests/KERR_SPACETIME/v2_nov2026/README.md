@@ -1,7 +1,7 @@
 # Kerr spacetime v2 (Nov 2026): gravitational waves from the MW manifold, no amplitude calibration
 
 v1 (January 2026, files one level up) needed a **10,804× auto-calibration** to get the gravitational-wave amplitude right.
-v2 removes it. The waveform amplitude and phase now come straight from the geometry the MW manifold learned, with no tuning.
+v2 removes it. The waveform amplitude and phase now come straight from the geometry computed through the MW manifold (Kerr metric supplied as the prior), with no tuning.
 
 ![Kerr v2 results](results/fig_kerr_v2.png)
 

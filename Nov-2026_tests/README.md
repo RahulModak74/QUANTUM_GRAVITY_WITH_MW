@@ -17,7 +17,7 @@ The usual route goes from PDEs to numerics. Here the manifold comes first: the t
 
 ## Kerr spacetime and gravitational waves
 
-[`KERR_SPACETIME/`](KERR_SPACETIME/README.md) learns Kerr black-hole geometry with an MW manifold and builds inspiral waveforms from it with no amplitude calibration. Matched against exact Kerr under Advanced LIGO noise, v2 reaches 0.99993–0.999999, and v3 uses one model for all spins a = 0 → 0.95.
+[`KERR_SPACETIME/`](KERR_SPACETIME/README.md) routes Kerr black-hole geometry through a learned MW manifold (Kerr metric supplied as the prior) and builds inspiral waveforms from it with no amplitude calibration. Matched against exact Kerr under Advanced LIGO noise, v2 reaches 0.99993–0.999999, and v3 uses one model for all spins a = 0 → 0.95.
 
 ## Structural position (paper, Table 1)
 

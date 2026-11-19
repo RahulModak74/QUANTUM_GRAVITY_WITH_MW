@@ -50,7 +50,7 @@ The standard route goes from PDEs to numerics. MW also runs **in reverse**: the 
 
 ### Kerr spacetime and gravitational waves: [`Nov-2026_tests/KERR_SPACETIME/`](Nov-2026_tests/KERR_SPACETIME/)
 
-Rahul Modak's first MW physics attempt (January 2026, formerly the standalone `mw-framework` repo) learned Kerr black-hole geometry and gravitational waves from a manifold. It is now part of this repo. **v2 (Nov 2026)** retrains it on exact Kerr geodesics with an MW physics prior on the metric, and **removes the 10,804× amplitude calibration** v1 needed:
+Rahul Modak's first MW physics attempt (January 2026, formerly the standalone `mw-framework` repo) routed Kerr black-hole geometry and gravitational waves through a learned manifold. It is now part of this repo. **v2 (Nov 2026)** retrains it on exact Kerr geodesics with the Kerr metric as an MW physics prior, computes orbital geometry through the manifold, and **removes the 10,804× amplitude calibration** v1 needed:
 
 | Spin a = 0.9 | Exact Kerr | MW manifold |
 |---|---|---|
@@ -59,11 +59,11 @@ Rahul Modak's first MW physics attempt (January 2026, formerly the standalone `m
 | GW amplitude at 1.5 r_ISCO | 8.864×10⁻⁴ | 8.858×10⁻⁴, **calibration factor 1.0** |
 | Inspiral to ISCO, η = 0.01 (475 cycles) | — | match **0.9998** |
 | Same, Advanced LIGO noise, M = 20–100 M☉ | — | match **0.99993–0.999999** |
-| Cost per template, laptop CPU | NR (SXS): ~128,000 core-hours per run on average | **0.16 s**, flat from 29 to 4,545 cycles |
+| Training, laptop CPU | — | 62 min (one spin), 72 min (all spins) |
 
 **v3** ([`Nov-2026_tests/KERR_SPACETIME/v3_spin_family/`](Nov-2026_tests/KERR_SPACETIME/v3_spin_family/README.md)) is one manifold for the whole Kerr family, spin a = 0 → 0.95. ISCO error is at most 0.12% over 39 spins. Advanced LIGO matches are 0.99995–0.999998 at six spins not used in training. It trains in 72 min on a laptop CPU.
 
-The match compares the manifold's geometry against exact Kerr under the same adiabatic inspiral model. It is not an NR comparison. Details and limits are in [`Nov-2026_tests/KERR_SPACETIME/v2_nov2026/README.md`](Nov-2026_tests/KERR_SPACETIME/v2_nov2026/README.md).
+This is a controlled validation. The analytic Kerr metric is supplied as the prior, and the test is whether geometry carried through the learned manifold stays accurate enough for gravitational-wave analysis. The waveforms come from the same adiabatic inspiral model on both sides, not from NR, and no speed advantage over LIGO's waveform models is claimed. The next step is inferring the metric from orbits alone. Details, limits and anticipated questions are in [`Nov-2026_tests/KERR_SPACETIME/README.md`](Nov-2026_tests/KERR_SPACETIME/README.md).
 
 ![Kerr v2](Nov-2026_tests/KERR_SPACETIME/v2_nov2026/results/fig_kerr_v2.png)
 

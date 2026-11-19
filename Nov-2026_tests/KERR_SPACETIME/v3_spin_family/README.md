@@ -1,6 +1,6 @@
 # Kerr v3: one MW manifold for the whole Kerr family (spin 0 → 0.95)
 
-v2 learned the geometry of a single black hole (a = 0.9). v3 trains **one** conditional MW manifold whose decoder takes
+v2 carried the geometry of a single black hole (a = 0.9) through a learned manifold. v3 trains **one** conditional MW manifold whose decoder takes
 the spin **a** as an input. It covers every spin from Schwarzschild (a = 0) to near-extremal (a = 0.95). The checks
 below then pull the geometry and gravitational waves for any spin from that single model.
 
@@ -68,7 +68,8 @@ model. That is a **139× compression**, and it now spans a whole family of space
 ## Scope
 
 The scope is the same as v2. These are circular, equatorial, adiabatic inspirals under a PN-type flux, compared
-against exact Kerr geometry under the same waveform model. They are not compared against numerical relativity. There
+against exact Kerr geometry under the same waveform model. As in v2, the analytic Kerr metric is supplied as the prior and at geometry
+evaluation. What the model learns is a geometry-preserving manifold over the spin family, not the metric itself. They are not compared against numerical relativity. There
 is no merger or ringdown.
 
 ## Reproduce

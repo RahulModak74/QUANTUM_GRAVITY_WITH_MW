@@ -1,59 +1,71 @@
-# Kerr Spacetime and Gravitational Waves from a Learned Manifold
+# Kerr Spacetime and Gravitational Waves through a Learned MW Manifold
 
-**Modak–Walawalkar (MW) framework: Kerr black-hole geometry and inspiral gravitational waves from a physics-prior
-Bayesian manifold, trained in one hour on a laptop CPU, with no amplitude calibration.**
-
-> **Think manifolds, not PDEs.** No mesh, no field evolution, no time-stepping of Einstein's equations: physics enters as
-> Bayesian priors, a variational autoencoder learns the manifold of valid spacetime states, and every waveform after
-> that is a query.
+**Modak–Walawalkar (MW) framework. A Bayesian manifold, trained on exact Kerr geodesics with the Kerr metric as a
+physics prior, carries strong-field orbital geometry accurately enough for gravitational-wave data analysis. The
+mismatch under Advanced LIGO noise is ≤ 5×10⁻⁵ for every spin from 0 to 0.95, with no amplitude calibration, on a
+laptop CPU.**
 
 ![Kerr v2 results](v2_nov2026/results/fig_kerr_v2.png)
 
 ---
 
-## Headline results (Kerr, spin a = 0.9)
+## What is tested, in one paragraph
+
+An MW variational manifold (8-D latent) is trained on exact Kerr timelike geodesics (675 k phase-space points for one spin, 1.3 M for the spin family). The
+Kerr metric enters as a Bayesian prior: the geometry at a reconstructed point must match the geometry at the data
+point. Every geometric quantity used for waveforms is then computed **through the manifold**. The metric is evaluated
+at x̂ = decode(encode(x)), with r-derivatives taken by automatic differentiation through the encoder and decoder. This
+gives the orbital frequency Ω(r), the binding energy E(r) and the ISCO. Adiabatic inspiral waveforms are built from
+these and compared with waveforms built from exact Kerr under the **same** waveform model. The question is whether
+geometry routed through a learned, ~100× compressed representation stays accurate enough for GW data analysis. **It
+does, by two to four orders of magnitude** relative to the 0.97 template-bank standard.
+
+> **What this is not.**
+> - **It is not a new waveform model.** The inspiral is the textbook adiabatic, circular, equatorial, test-mass model
+>   with quadrupole (or 2.5PN) flux, with no merger or ringdown.
+> - **It is not discovery of the Kerr metric.** The analytic metric is supplied, both as the training prior and when
+>   evaluating geometry at x̂. The network has to preserve the geometry, not invent it.
+> - **It is not faster than LIGO's waveform models.** It is not a substitute for numerical relativity either.
+>
+> Inferring the metric from orbits alone, with no analytic form supplied, is the next step (§9). It is the step that
+> carries over to spacetimes with no closed form.
+
+---
+
+## Headline results
+
+**Spin a = 0.9, single-spin manifold (v2):**
 
 | | Exact Kerr | MW manifold | Agreement |
 |---|---|---|---|
-| ISCO radius | 2.3209 M | 2.3224 M | **0.06%** |
-| Orbital frequency Ω(r), ISCO → 12 M | Bardeen–Press–Teukolsky | through the manifold | **≤ 0.074%** (median 0.012%) |
-| Orbital energy E(r) | BPT | through the manifold | **≤ 0.0034%** |
-| GW amplitude h₀ at 1.5 r_ISCO | 8.864×10⁻⁴ | 8.858×10⁻⁴ | **0.07%, calibration factor 1.0** |
-| Inspiral to ISCO, 475 cycles (η = 0.01), flat noise | — | — | match **0.9998** |
-| Same, **Advanced LIGO noise**, M = 20–100 M☉ | — | — | match **0.99993 – 0.999999** |
+| ISCO radius | 2.3209 M | 2.3224 M | 0.063% |
+| Orbital frequency Ω(r), ISCO → 12 M | Bardeen–Press–Teukolsky | through the manifold | ≤ 0.074% (median 0.012%) |
+| Binding energy E(r) | BPT | through the manifold | ≤ 0.0034% |
+| GW amplitude h₀ at 1.5 r_ISCO | 8.864×10⁻⁴ | 8.858×10⁻⁴ | 0.07%, **calibration factor 1.0** |
+| Inspiral to ISCO, 475 cycles (η = 0.01), flat noise | — | — | match 0.9998 |
+| Same, **Advanced LIGO design noise**, M = 20–100 M☉ | — | — | match **0.99993 – 0.999999** |
 
-**Cost on a laptop CPU (Intel i5-12450H, no GPU):**
+**All spins, one manifold (v3, [`v3_spin_family/`](v3_spin_family/README.md)):**
+- Spin is an input, and one model covers a = 0 → 0.95 (Schwarzschild to near-extremal).
+- ISCO error is ≤ 0.12% over 39 spins.
+- aLIGO match at six spins not used in training is **0.99995 – 0.999998** (M = 60 M☉, η = 0.01).
 
-| | Time |
-|---|---|
-| Train the manifold (once) | 62 min |
-| Extract the orbital geometry for a spin (once) | 0.3 s |
-| **One full inspiral template** | **0.16 s**, flat from 29 to 4,545 GW cycles |
-| **25,000 templates** | **≈ 65 min** |
-
-**One model for every spin (v3, [`v3_spin_family/`](v3_spin_family/README.md)).** A single MW manifold with spin as
-input covers a = 0 → 0.95 (Schwarzschild to near-extremal). ISCO error across 39 spins is at most 0.12%. Advanced LIGO
-matches at spins never used in training are **0.99995–0.999998** (M = 60 M☉, η = 0.01). Training took 72 min on the same
-CPU, and geometry for a new spin takes 0.32 s.
-
-For scale: the SXS collaboration's third catalog of binary-black-hole simulations, 3,756 numerical-relativity runs,
-cost an estimated **480 million core-hours**, about 128,000 core-hours per simulation on average
-([Scheel et al. 2025, arXiv:2505.13378](https://arxiv.org/abs/2505.13378)). Numerical-relativity cost grows roughly as
-**q⁻²** with mass ratio q, and full simulations below q ≈ 1/10 are rare
-([worldtube excision, arXiv:2109.03531](https://arxiv.org/abs/2109.03531)). The MW template above is at **q ≈ 1/99**.
+**Cost (Intel i5-12450H laptop CPU, no GPU):** data 220 s; training 62 min (v2) or 72 min (v3, all spins);
+geometry extraction 0.3 s per spin. The waveforms themselves are generated by a standard adiabatic integrator, whose
+cost does not depend on the manifold (§3).
 
 ---
 
 ## Contents
 
-1. [Why this matters](#1-why-this-matters)
+1. [Why a GW modeller might care](#1-why-a-gw-modeller-might-care)
 2. [Results](#2-results)
-3. [Speed and cost](#3-speed-and-cost)
+3. [Cost](#3-cost)
 4. [State-space reduction](#4-state-space-reduction)
 5. [What changed from v1](#5-what-changed-from-v1-january-2026)
 6. [Method](#6-method)
 7. [Validation checks](#7-validation-checks)
-8. [Scope and limits](#8-scope-and-limits)
+8. [Scope, limits and anticipated questions](#8-scope-limits-and-anticipated-questions)
 9. [Roadmap](#9-roadmap)
 10. [Reproduce](#10-reproduce)
 11. [Folder map](#11-folder-map)
@@ -61,27 +73,29 @@ cost an estimated **480 million core-hours**, about 128,000 core-hours per simul
 
 ---
 
-## 1. Why this matters
+## 1. Why a GW modeller might care
 
-Gravitational-wave astronomy runs on waveform templates. The gold standard, numerical relativity (NR), evolves
-Einstein's equations on a 3-D grid on a supercomputer: each binary costs on the order of 10⁵ core-hours, and the cost
-grows as the mass ratio falls, because the small body must be resolved while the number of orbits grows. Searches
-need tens of thousands of templates, so the field builds faster models (post-Newtonian, effective-one-body,
-phenomenological fits, self-force), each derived analytically by hand over years and then calibrated to NR.
+Waveform models need the strong-field orbital geometry of the central object: Ω(r), E(r), the ISCO and the
+fundamental frequencies. For Kerr these are known in closed form. For the spacetimes a test of GR has to consider,
+they mostly are not. Examples are deformed or "bumpy" Kerr, black holes in modified gravity known only perturbatively
+or numerically, and black holes dressed by matter. For those, the geometry is available at best as data: numerical
+metrics, or orbits.
 
-The MW framework takes a third route:
+The MW framework is a route from data plus physical structure (written as Bayesian priors) to a smooth,
+differentiable manifold. Geometry is then read off by automatic differentiation:
 
 ```
-Standard:  Einstein equations → discretise → evolve on a grid (supercomputer) → waveform
-MW:        physics as Bayesian priors → learn the manifold of valid states (laptop) → query geometry → waveform
+physics as Bayesian priors + data  →  learned MW manifold (laptop CPU, ~1 h)  →  geometry by autodiff  →  waveform
 ```
 
-This folder shows that route working on the Kerr black hole:
-- **The learned manifold reproduces Kerr geometry.** It matches exact Kerr to a few parts in 10⁴ in orbital frequency.
-- **It gives waveforms with the correct absolute amplitude.** No calibration is applied.
-- **Templates cost a fraction of a second on a laptop CPU.**
+This folder is the **controlled validation** of that pipeline, on the one case where the answer is known exactly. It
+establishes four things:
+- The manifold preserves strong-field geometry to ~10⁻³ in Ω, down to the ISCO.
+- The waveform-level error is far inside LIGO tolerances, under the real aLIGO noise curve.
+- No calibration factor is needed.
+- One model handles a whole family of spacetimes, with the spin as a parameter.
 
-The model is trained once, and every template after that is a cheap query.
+Those are the prerequisites for using the same pipeline where no closed form exists.
 
 ---
 
@@ -146,8 +160,8 @@ normalised overlap, maximised over time and phase shifts.
 | 60 M☉ | 25 – 243 Hz | 0.999973 | 0.999986 |
 | 100 M☉ | 15 – 146 Hz | 0.999991 | 0.999999 |
 
-LIGO template banks are typically built to a **minimal match of 0.97**. The manifold's waveforms are three to four
-orders of magnitude inside that tolerance relative to exact-Kerr geometry.
+LIGO template banks are typically built to a **minimal match of 0.97** (mismatch 0.03). Relative to exact-Kerr
+geometry, the manifold's mismatches are 10⁻⁶ – 7×10⁻⁵, two to four orders of magnitude inside that tolerance.
 
 *How sensitive is this match?* As a control, uniformly scaling the exact Ω by 1.001 drops the aLIGO match at
 M = 60 M☉, η = 0.01 to 0.9969, and scaling it by 1.01 drops it to 0.76. The manifold's Ω error is smaller than 0.1% and
@@ -155,55 +169,41 @@ changes sign along r, which is why the match stays at 0.99999.
 
 ---
 
-## 3. Speed and cost
+## 3. Cost
 
 Measured by `v2_nov2026/kerr_v2_benchmark.py` → `results/benchmark.json` (Intel i5-12450H, PyTorch 2.13, CPU only).
 
 | Stage | Cost | How often |
 |---|---|---|
-| Generate exact geodesic training data | 220 s for 6,000 geodesics / 1.31 M points (timed in `v3_spin_family/`) | once |
-| Train the MW manifold (80,000 steps) | 62 min, 6 CPU threads | once |
+| Generate exact geodesic training data | 220 s for 6,000 geodesics / 1.31 M points (v3, all spins) | once |
+| Train the MW manifold | 62 min (v2, one spin, 80k steps); 72 min (v3, all spins, 100k steps), 6 CPU threads | once |
 | Load the model | 0.01 s | per session |
 | Extract Ω(r), E(r), ISCO through the manifold | 0.30 s (6 threads), 2.5 s (1 thread) | once per spin |
-| Raw manifold queries (encode + decode) | ~121,000 points/s | — |
-| **Inspiral template, η = 0.05–0.25** (median 29 cycles) | **163 ms** → 369/min | per template |
-| **Inspiral template, η = 0.01–0.05** (median 151 cycles) | **155 ms** → 388/min | per template |
-| **Inspiral template, η = 0.001–0.01** (median 761, max 4,545 cycles) | **176 ms** → 341/min | per template |
+| Manifold queries (encode + decode) | ~121,000 points/s | — |
+| Adiabatic inspiral template from the extracted Ω(r), E(r) | ~0.16 s, independent of η (29 to 4,545 cycles) | per template |
 
-**Template cost does not grow with the number of cycles or with mass ratio.** Numerical relativity scales the other way:
+**What the template time measures.** Once Ω(r) and E(r) are extracted, a template costs the same as an adiabatic
+inspiral built from closed-form Kerr Ω(r) and E(r), because it is the same code. The 0.16 s is an unoptimised NumPy
+integration on a 400,000-point radial grid. It is not a property of the manifold, and it is not a speed claim.
 
-| Approach | Cost of one waveform | Scaling with mass ratio q |
-|---|---|---|
-| Numerical relativity (SXS, SpEC) | ≈128,000 core-hours on average over 3,756 runs (catalog total 480 M core-hours) [1]; median 22 orbits | ∝ q⁻²; below q ≈ 1/10 rarely attempted [2] |
-| **MW manifold (this work)** | **0.16 core-seconds**, 4,545 cycles in the same time as 29 | **flat** |
-
-The ratio of those two numbers is about **3×10⁹**. It is a ratio of cost scales, not a like-for-like speed-up. An NR
-run solves the full nonlinear two-body problem, including merger and ringdown, for comparable masses. The MW
-template is the inspiral of a small body in the Kerr geometry up to the ISCO. The point is the regime: at
-**q ≈ 1/100 and below, where NR becomes prohibitively expensive, the MW template costs the same 0.16 s.**
-
-**Comparison with LIGO's fast waveform models.** These are the models a GW reviewer will compare against.
-`v2_nov2026/kerr_v2_lal_reference.py` times them on the same CPU through LALSuite 7.7.1 (M = 60 M☉, aligned spin
-0.9, f ≥ 20 Hz):
+**For reference, LIGO's own models on the same CPU** (`v2_nov2026/kerr_v2_lal_reference.py`, LALSuite 7.7.1,
+M = 60 M☉, aligned spin 0.9, f ≥ 20 Hz):
 
 | LALSuite model | η = 0.1 | η = 0.0099 (1:99) |
 |---|---|---|
 | SpinTaylorT4 (PN, time domain) | 6 ms | 78 ms |
 | SEOBNRv4_opt (EOB, time domain) | 36 ms | 129 ms * |
 | IMRPhenomD (phenomenological, frequency domain) | 9 ms | 7 ms * |
-| **MW manifold (this work)** | **~160 ms** | **~160 ms** |
 
 \* SEOBNRv4 is NR-calibrated to mass ratio 1:8, plus the test-particle limit, and IMRPhenomD to 1:18. At 1:99 both
-run outside their NR-calibrated range.
+run outside their NR-calibrated range. These models also contain physics the MW template does not: spin precession
+(SpinTaylor), merger and ringdown (EOB, Phenom), and comparable-mass dynamics.
 
-These hand-built models are as fast as the MW template, or faster. MW's advantage over them is not raw speed:
-- **How the geometry is obtained.** Each of those models is an analytic construction, refined over decades for
-  this one problem and calibrated to NR. The MW manifold obtained the Kerr geometry from priors and data in one
-  hour of CPU training, with no analytic derivation of the waveform model.
-- **Reach.** The same engine applies wherever a governing structure can be written as a prior, including
-  spacetimes and couplings for which no hand-built model exists.
-
-The MW template has not been optimised. Its 0.16 s is dominated by a 400,000-point radial integration in NumPy.
+**Where the cost argument does apply** is in obtaining the geometry. A new spacetime needs about one hour of CPU
+training from data plus priors, and 0.3 s per parameter value afterwards. A hand-derived analytic treatment is not
+needed. This advantage matters only for spacetimes without a closed form, which is the purpose of the roadmap in §9.
+Numerical-relativity costs (≈10⁵ core-hours per comparable-mass binary, [1]) belong to a different problem, the full
+two-body merger, and are not compared here.
 
 ---
 
@@ -218,7 +218,7 @@ The MW template has not been optimised. Its 0.16 s is dominated by a 400,000-poi
 
 The whole region r ∈ [1.65, 40] M, all θ and φ, is held as one smooth differentiable object. Geometric quantities such
 as metric derivatives, orbital frequencies and the ISCO are read off by automatic differentiation, with no grid and no
-interpolation table. For comparison, an NR evolution carries the full spacetime on a 3-D grid at every time step.
+interpolation table. Kerr itself is a few closed-form functions, so this compression is of the trajectory data, not of the geometry. It matters for spacetimes that are available only as data.
 
 ---
 
@@ -283,17 +283,31 @@ Each of these could have failed:
 
 ---
 
-## 8. Scope and limits
+## 8. Scope, limits and anticipated questions
 
-- **The question tested.** Does the geometry learned by the manifold give the same waveform as exact Kerr geometry,
-  under the same waveform model? Yes, to 0.9997–0.999999.
-- **The waveform model itself** is the adiabatic quadrupole, or 2.5PN test-mass flux, inspiral on circular equatorial
-  orbits. It is **not** an NR, EOB or self-force waveform. It has no merger or ringdown and no second-order self-force
-  terms. For mass ratios near 1, it is not an accurate description of real binaries.
-- **v2 is one manifold per spin** (a = 0.9). v3 (`v3_spin_family/`) covers the whole family a ∈ [0, 0.95] with one model.
-  It has not been tested beyond a = 0.95.
-- **The supercomputer comparison** is a comparison of cost scales and regimes, not of like-for-like physics content
-  (§3).
+**Scope.** Does the geometry carried by the learned manifold give the same waveform as exact Kerr geometry, under the
+same waveform model? Yes, to 0.9997–0.999999 (flat and aLIGO noise), for spins 0–0.95.
+
+**Limits.**
+- **The waveform model** is the adiabatic circular equatorial test-mass inspiral, with quadrupole or 2.5PN flux. It has
+  no merger or ringdown, no self-force corrections and no precession. For comparable masses (η = 0.1 and above) it is
+  not a physical description of real binaries. It is used there only as a fixed yardstick for geometry errors. Its
+  natural regime is extreme mass ratios.
+- **The analytic Kerr metric is supplied** as the training prior and at geometry evaluation.
+- **Spins above 0.95, inclined or eccentric inspirals, and Teukolsky fluxes** have not been tested.
+- **The aLIGO cases at η = 0.01** (about 59.4 + 0.6 M☉ at M = 60) are chosen for their long, many-cycle signals, not as
+  typical LIGO sources.
+
+**Anticipated questions from GW modellers.**
+
+| Question | Answer |
+|---|---|
+| *Kerr is known in closed form. What does learning it add?* | On its own, nothing new about Kerr. Kerr is the control experiment: it is the only way to measure, against an exact answer, how much accuracy a learned manifold loses in strong-field geometry and in the waveform (≤ 0.2% in Ω, mismatch ≤ 5×10⁻⁵). The method is aimed at spacetimes without closed forms (§1, §9). |
+| *The exact metric is used at x̂. Isn't the result circular?* | Partly, and it is stated up front. The test is whether a learned, compressed chart of phase space preserves the geometry, including first derivatives taken through the network, well enough for waveforms. It does not show discovery of the metric. Inferring the metric from orbits with no analytic form is the next experiment (§9, item 1). |
+| *0.16 s per template is slower than LAL's models.* | Agreed (§3). The template time is a generic adiabatic integrator and is not claimed as a speed-up. |
+| *How does this compare with numerical relativity?* | It doesn't compete. NR solves the comparable-mass merger. This work addresses the orbital geometry of the central object, which is the input to EMRI and self-force waveforms and to tests of the Kerr hypothesis. |
+| *Is a 0.9999 match meaningful, or is the statistic insensitive?* | It is sensitive. Scaling the exact Ω by 1.001 drops the aLIGO match to 0.9969, and by 1.01 to 0.76 (§2.3). |
+| *Were test spins in the training set?* | Training spins are drawn continuously, one per geodesic. None of the six evaluation spins is a training value, and all lie inside the trained range [0, 0.95]. |
 
 ---
 
@@ -301,15 +315,13 @@ Each of these could have failed:
 
 | Item | Status |
 |---|---|
-| Exact Kerr geodesic data | ✅ v2 |
-| No amplitude calibration | ✅ v2 |
-| Advanced LIGO noise-weighted matches in physical units | ✅ v2 |
-| CPU cost benchmark and LALSuite reference timings | ✅ v2 |
-| **One manifold for the Kerr family, a ∈ [0, 0.95], tested on spins never seen in training** | ✅ [v3](v3_spin_family/README.md): ISCO ≤ 0.12%, aLIGO match ≥ 0.99995 at all 6 test spins |
-| Teukolsky-equation fluxes instead of PN flux, compared against the Black Hole Perturbation Toolkit | next |
-| Eccentric and inclined inspirals, Kerr fundamental frequencies (Ω_r, Ω_θ, Ω_φ) through the manifold (the data already contain such orbits) | next |
-| LISA band (extreme mass ratios, 10⁴–10⁶ cycles) | next |
-| Comparison with SXS/NR for comparable masses (needs a merger model) | later |
+| Exact Kerr geodesic data; no amplitude calibration | ✅ v2 |
+| Advanced LIGO noise-weighted matches in physical units; LALSuite reference timings | ✅ v2 |
+| **One manifold for the Kerr family, a ∈ [0, 0.95], tested at spins not in the training set** | ✅ [v3](v3_spin_family/README.md): ISCO ≤ 0.12%, aLIGO match ≥ 0.99995 at all 6 test spins |
+| **1. Metric inferred from orbits alone.** No analytic metric is supplied. Stationarity, axisymmetry, asymptotic flatness and the Hamiltonian constraint enter as priors, and Kerr Ω(r), E(r) and ISCO are recovered blind. | next: the key experiment |
+| **2. A spacetime without a closed-form orbital structure:** deformed Kerr (e.g. Johannsen–Psaltis [2]), recovered from orbit data and compared with direct numerical solution | after 1 |
+| 3. Kerr fundamental frequencies (Ω_r, Ω_θ, Ω_φ) for eccentric and inclined orbits through the manifold (the data already contain such orbits) | planned |
+| 4. Teukolsky-equation fluxes in place of PN flux, checked against the Black Hole Perturbation Toolkit; LISA-band EMRIs | planned |
 
 ---
 
@@ -377,7 +389,7 @@ lives here, with its full git history. v2 (November 2026) keeps the idea and fix
 
 **References**
 1. M. A. Scheel et al., *The SXS Collaboration's third catalog of binary black hole simulations*, arXiv:2505.13378 (2025): 3,756 simulations, estimated 480,000,000 core-hours, median 22 orbits.
-2. Worldtube excision for intermediate-mass-ratio inspirals, arXiv:2109.03531; NR cost ∝ q⁻², few simulations below q = 0.1.
+2. T. Johannsen, D. Psaltis, *Metric for rapidly spinning black holes suitable for strong-field tests of the no-hair theorem*, Phys. Rev. D 83, 124015 (2011).
 3. J. M. Bardeen, W. H. Press, S. A. Teukolsky, *Rotating black holes: locally nonrotating frames, energy extraction, and scalar synchrotron radiation*, ApJ 178, 347 (1972).
 4. LIGO Scientific Collaboration, *LALSuite*, version 7.7.1.
 
