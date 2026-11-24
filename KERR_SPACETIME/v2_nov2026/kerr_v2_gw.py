@@ -57,14 +57,14 @@ def _diagnose_v1():
         m_plus_noVAE = g.compute_match(hp1, t1, pp, tp)
         g.vae.van_vleck_determinant = orig
     v = g.vae
-    x = torch.tensor(orb[::50], dtype=torch.float32)
+    x = torch.tensor(orb[::50], dtype=torch.float32, device=g.device)
     deltas = []
     for xa in x[:10]:
         xb = xa.clone(); xb[1] += .01; xb[3] += .01
         with torch.enable_grad(), contextlib.redirect_stdout(io.StringIO()):
             deltas.append(v.van_vleck_determinant(xa, xb)[0])
     with torch.no_grad():
-        xr = v.decode(v.encode(x)[0]).numpy()
+        xr = v.decode(v.encode(x)[0]).cpu().numpy()
     r_true = orb[0, 1]
     # what the v1 auto-calibration targeted, and the standard leading-order amplitude
     M, a, r = 1.0, g.a, r_true
